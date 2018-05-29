@@ -1,0 +1,21 @@
+HOSTS:
+  wls1.example.com:
+    roles:
+      - master
+      - agent
+    platform: el-7-x86_64
+    hypervisor : docker
+    image: centos:7
+    docker_preserve_image: true
+    docker_cmd: '["/sbin/init"]'
+    mount_folders:
+      software:
+        host_path: software
+        container_path: /software
+CONFIG:
+  type: aio
+  # log_level: debug
+  log_level: info
+ssh:
+  password: root
+  # auth_methods: ["password"]

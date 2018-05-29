@@ -1,0 +1,62 @@
+.fixtures.yml:
+  fixtures:
+    repositories:
+      easy_type:
+        repo: 'git@github.com:enterprisemodules/easy_type.git'
+        scm: git
+        branch: master
+    forge_modules:
+      stdlib:
+        repo: 'puppetlabs/stdlib'
+      archive:
+        repo: 'puppet-archive'
+        ref: '>= 2.0.0'
+      sleep:
+        repo: 'fiddyspence-sleep'
+        ref: '>= 1.2.0'
+      wls_config:
+        repo: 'enterprisemodules-wls_config'
+        ref: '>= 3.0.20'
+
+# This part of .sync.yml file which overrides overcommit.yml
+# Exact stucture of file
+.overcommit.yml:
+  CommitMsg:
+    CapitalizedSubject:
+      enabled: false
+    EmptyMessage:
+      enabled: false
+    TrailingPeriod:
+      enabled: true
+    TextWidth:
+      enabled: false
+  PreCommit:
+    ALL:
+      on_warn: fail
+    AuthorEmail:
+      enabled: true
+    AuthorName:
+      enabled: true
+    MergeConflicts:
+      enabled: true
+    PuppetLint:
+      flags: ['--relative']
+      enabled: true
+    YamlSyntax:
+      enabled: true
+    BundleCheck:
+      enabled: true
+    RuboCop:
+      enabled: false
+    Fasterer:
+      enabled: true
+    BundleAudit:
+      enabled: true
+    Brakeman:
+      enabled: true
+  PrePush:
+    RakeTarget:
+      enabled: true
+      description: Run RSpec tests
+      targets:
+      - 'spec'

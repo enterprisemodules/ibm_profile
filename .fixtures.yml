@@ -1,0 +1,21 @@
+# This file can be used to install module depdencies for unit testing
+# See https://github.com/puppetlabs/puppetlabs_spec_helper#using-fixtures for details
+---
+fixtures:
+  symlinks:
+    ibm_profile: "#{source_dir}"
+  forge_modules:
+    easy_type:              enterprisemodules/easy_type
+    wls_install:            enterprisemodules/wls_install
+    wls_config:             enterprisemodules/wls_config
+    stdlib:                 puppetlabs/stdlib
+    echo:                   ipcrm/echo
+    archive:                puppet/archive
+    augeasproviders_core:   herculesteam-augeasproviders_core
+    augeasproviders_sysctl: herculesteam-augeasproviders_sysctl
+    limits:                 saz/limits
+    firewall:               puppetlabs-firewall
+    firewalld:              crayfishx-firewalld
+    sleep:                  fiddyspence-sleep
+    jdk7:                   biemond-jdk7
+

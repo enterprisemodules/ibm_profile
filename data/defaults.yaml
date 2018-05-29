@@ -1,0 +1,124 @@
+---
+ibm_profile::os_group:        mqm
+ibm_profile::os_user:         mqm
+ibm_profile::source_location: puppet:///modules/software
+ #------------------------------------------------------------------------------
+#
+# Sysctl
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::sysctl::list:
+  'kernel.shmmax':                 
+    value: 268435456
+  'kernel.shmall':                 
+    value: 2097152
+  'kernel.shmmni':                 
+    value: 4096
+  'vm.overcommit_memory':                 
+    value: 2
+  'vm.overcommit_ratio':                 
+    value: 80
+  'kernel.threads-max':                 
+    value: 32768
+  'kernel.pid_max':                 
+    value: 32768
+  'fs.file-max':                 
+    value: 524288
+#------------------------------------------------------------------------------
+#
+# Limits
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::limits::list:
+  "%{::ibm_profile::os_user}/nofile":
+    soft: 20480
+    hard: 20480
+  "%{::ibm_profile::os_user}/nproc":
+    soft: 4096
+    hard: 4096
+#------------------------------------------------------------------------------
+#
+# Groups to create
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::groups_and_users::groups:
+  "%{::ibm_profile::os_group}": 
+    gid:  1001    
+#------------------------------------------------------------------------------
+#
+# Users to create
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::groups_and_users::users:
+  "%{::ibm_profile::os_user}":
+    uid:        995
+    gid:        "%{::ibm_profile::os_group}"
+    home:       "/var/%{::ibm_profile::os_user}"
+    comment:    This user oracle was created by Puppet
+    managehome: true
+    password:   '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.'
+    shell:      '/bin/bash'
+#------------------------------------------------------------------------------
+#
+# Firewall rules
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::firewall::ports:
+  - 1414
+ibm_profile::mq_machine::firewall::manage_service: true
+#------------------------------------------------------------------------------
+#
+# Extra required packages
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::packages::list:
+- unzip
+#------------------------------------------------------------------------------
+#
+# MQ software
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::software::version:            9.0.0.0  
+ibm_profile::mq_machine::software::install_ams:        false
+ibm_profile::mq_machine::software::install_ft:         false
+ibm_profile::mq_machine::software::install_client:     false
+ibm_profile::mq_machine::software::install_explorer:   false
+ibm_profile::mq_machine::software::install_xrserver:   false
+ibm_profile::mq_machine::software::install_samples:    false
+ibm_profile::mq_machine::software::install_sdk:        false
+ibm_profile::mq_machine::software::install_man:        false
+ibm_profile::mq_machine::software::install_gskit:      false
+ibm_profile::mq_machine::software::install_amqp:       false
+#------------------------------------------------------------------------------
+#
+# MQ managers
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_managers:
+  QM1: {}
+ibm_profile::mq_machine::manager_setup::defaults: {}
+#------------------------------------------------------------------------------
+#
+# messaging setup
+#
+#------------------------------------------------------------------------------
+#
+# For queues
+#
+ibm_profile::mq_machine::messaging_setup::queue_defaults: {}
+ibm_profile::mq_machine::messaging_setup::queue_list: {}
+#
+# For topics
+#
+ibm_profile::mq_machine::messaging_setup::topic_defaults: {}
+ibm_profile::mq_machine::messaging_setup::topic_list: {}
+#
+# For listeners
+#
+ibm_profile::mq_machine::messaging_setup::listener_defaults: {}
+ibm_profile::mq_machine::messaging_setup::listener_list: {}
+#
+# For channels
+#
+ibm_profile::mq_machine::messaging_setup::channel_defaults: {}
+ibm_profile::mq_machine::messaging_setup::channel_list: {}
