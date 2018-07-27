@@ -122,3 +122,10 @@ ibm_profile::mq_machine::messaging_setup::listener_list: {}
 #
 ibm_profile::mq_machine::messaging_setup::channel_defaults: {}
 ibm_profile::mq_machine::messaging_setup::channel_list: {}
+#
+# For security and authentication
+#
+ibm_profile::mq_machine::authorization_setup::authentication_defaults: {}
+ibm_profile::mq_machine::authorization_setup::authentication_info:      {}
+ibm_profile::mq_machine::authorization_setup::authorization_defaults:  {}
+ibm_profile::mq_machine::authorization_setup::authorization_list:       {}
