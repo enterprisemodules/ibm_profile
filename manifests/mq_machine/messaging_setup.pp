@@ -10,13 +10,44 @@ class ibm_profile::mq_machine::messaging_setup(
   Hash $channel_list,
   Hash $channel_defaults,
 ) inherits ibm_profile {
-  echo {"MQ queue(s) ${queue_list.keys.join(', ')}": withpath => false}
-  echo {"MQ topic(s) ${topic_list.keys.join(', ')}": withpath => false}
-  echo {"MQ channel(s) ${channel_list.keys.join(', ')}": withpath => false}
-  echo {"MQ listener(s) ${listener_list.keys.join(', ')}": withpath => false}
 
-  create_resources('mq_queue', $queue_list, $queue_defaults)
-  create_resources('mq_topic', $topic_list, $topic_defaults)
-  create_resources('mq_listener', $listener_list, $listener_defaults)
-  create_resources('mq_channel', $channel_list, $channel_defaults)
+  mq_config::qmgrs_in($queue_list).each |$qmgr| {
+    if ! mq_config::is_standby($qmgr) {
+      $list = mq_config::resources_for($queue_list, $qmgr)
+      echo {"MQ queue(s) ${list.keys.join(', ')}": withpath => false}
+      create_resources('mq_queue', $list, $queue_defaults)
+    } else {
+      echo {"MQ queue(s) on ${qmgr} skipping because it is in standby mode": withpath => false}
+    }
+  }
+
+  mq_config::qmgrs_in($topic_list).each |$qmgr| {
+    if ! mq_config::is_standby($qmgr) {
+      $list = mq_config::resources_for($topic_list, $qmgr)
+      echo {"MQ topics(s) ${list.keys.join(', ')}": withpath => false}
+      create_resources('mq_topic', $list, $topic_defaults)
+    } else {
+      echo {"MQ topics(s) on ${qmgr} skipping because it is in standby mode": withpath => false}
+    }
+  }
+
+  mq_config::qmgrs_in($channel_list).each |$qmgr| {
+    if ! mq_config::is_standby($qmgr) {
+      $list = mq_config::resources_for($channel_list, $qmgr)
+      echo {"MQ channel(s) ${list.keys.join(', ')}": withpath => false}
+      create_resources('mq_channel', $list, $channel_defaults)
+    } else {
+      echo {"MQ channel(s) on ${qmgr} skipping because it is in standby mode": withpath => false}
+    }
+  }
+
+  mq_config::qmgrs_in($listener_list).each |$qmgr| {
+    if ! mq_config::is_standby($qmgr) {
+      $list = mq_config::resources_for($listener_list, $qmgr)
+      echo {"MQ listener(s) ${list.keys.join(', ')}": withpath => false}
+      create_resources('mq_channel', $list, $listener_defaults)
+    } else {
+      echo {"MQ listener(s) on ${qmgr} skipping because it is in standby mode": withpath => false}
+    }
+  }
 }
