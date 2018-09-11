@@ -1,6 +1,6 @@
 {
   "name": "enterprisemodules-ibm_profile",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "enterprisemodules",
   "summary": "Easy customisable profile classes for IBM MQ and IBM IIB  nodes",
   "license": "Apache-2.0",
@@ -8,23 +8,23 @@
   "dependencies": [
     {
       "name": "enterprisemodules/easy_type",
-      "version_requirement": ">= 2.4.3 < 4.0.0"
+      "version_requirement": ">= 2.5.0 < 4.0.0"
     },
     {
       "name": "enterprisemodules/mq_config",
-      "version_requirement": ">= 1.1.0 < 2.0.0"
+      "version_requirement": ">= 1.3.0 < 2.0.0"
     },
     {
       "name": "enterprisemodules/mq_install",
-      "version_requirement": ">= 3.0.5 < 4.0.0"
+      "version_requirement": ">= 1.1.1 < 2.0.0"
     },
     {
       "name": "enterprisemodules/iib_config",
-      "version_requirement": ">= 3.1.0 < 4.0.0"
+      "version_requirement": ">= 1.0.10 < 2.0.0"
     },
     {
       "name": "enterprisemodules/iib_install",
-      "version_requirement": ">= 3.0.5 < 4.0.0"
+      "version_requirement": ">= 1.0.14 < 2.0.0"
     },
     {
       "name": "ipcrm-echo",

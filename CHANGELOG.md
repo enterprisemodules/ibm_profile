@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.3.0
+
+**Features**
+
+- [mq_machine] Add support for standby queue managers
+
+**Bugfixes**
+
+None
+
 ## Release 0.2.0
 
 **Features**
