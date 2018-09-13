@@ -45,7 +45,7 @@ class ibm_profile::mq_machine::messaging_setup(
     if ! mq_config::is_standby($qmgr) {
       $list = mq_config::resources_for($listener_list, $qmgr)
       echo {"MQ listener(s) ${list.keys.join(', ')}": withpath => false}
-      create_resources('mq_channel', $list, $listener_defaults)
+      create_resources('mq_listener', $list, $listener_defaults)
     } else {
       echo {"MQ listener(s) on ${qmgr} skipping because it is in standby mode": withpath => false}
     }
