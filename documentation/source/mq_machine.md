@@ -5,7 +5,7 @@ This is a highly customizable Puppet profile class to define a WebLogic Software
 contain ibm_profile::weblogic
 ```
 
-Is enough to get a WebLogic 12.2.1.3 installed on your system. 
+Is enough to get a WebLogic 12.2.1.3 installed on your system.
 
 But sometimes you have specific uses cases that are not handled well by the standard classes. This profile class allows you to add your own code to the execution.
 
@@ -23,7 +23,7 @@ Defining and starting a WebLogic Admin Server on you system goes through several
 - [`wls_software`](/docs/ibm_profile/wls_software.html)      Install the WebLogic software
 - [`wls_patches`](/docs/ibm_profile/wls_patches.html)       Install the WebLogic patches
 
-All these stages have a default implementation. This implementation is suitable to get started with. These classed all have parameters you can customize through hiera values. The defaults are specified in the module's `data/default.yaml` file. 
+All these stages have a default implementation. This implementation is suitable to get started with. These classed all have parameters you can customize through hiera values. The defaults are specified in the module's `data/default.yaml` file.
 
 ## before classes
 
@@ -63,31 +63,31 @@ Look at the description of the stages and their properties.
 
 
 <%- include_attributes [
-  :sysctl,
-  :limits,
-  :packages,
-  :groups_and_users,
-  :ssh_setup,
-  :firewall,
-  :java_software,
-  :wls_software,
-  :wls_patches,
-  :before_sysctl,
-  :before_limits,
-  :before_packages,
-  :before_groups_and_users,
-  :before_ssh_setup,
-  :before_firewall,
-  :before_java_software,
-  :before_wls_software,
-  :before_wls_patches,
-  :after_sysctl,
+  :after_firewall,
+  :after_groups_and_users,
+  :after_java_software,
   :after_limits,
   :after_packages,
-  :after_groups_and_users,
   :after_ssh_setup,
-  :after_firewall,
-  :after_java_software,
-  :after_wls_software,
+  :after_sysctl,
   :after_wls_patches,
+  :after_wls_software,
+  :before_firewall,
+  :before_groups_and_users,
+  :before_java_software,
+  :before_limits,
+  :before_packages,
+  :before_ssh_setup,
+  :before_sysctl,
+  :before_wls_patches,
+  :before_wls_software,
+  :firewall,
+  :groups_and_users,
+  :java_software,
+  :limits,
+  :packages,
+  :ssh_setup,
+  :sysctl,
+  :wls_patches,
+  :wls_software,
 ] %>
