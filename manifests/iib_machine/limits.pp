@@ -1,9 +1,9 @@
 #++--++
 #--++--
-class ibm_profile::mq_machine::limits(
+class ibm_profile::iib_machine::limits(
   Hash $list
 ) inherits ibm_profile {
-  echo {'MQ limits':
+  echo {'IIB limits':
     withpath => false,
   }
   ensure_resources(limits::limits, $list)

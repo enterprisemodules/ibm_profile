@@ -1,8 +1,12 @@
 ---
-ibm_profile::os_group:        mqm
-ibm_profile::os_user:         mqm
-ibm_profile::source_location: puppet:///modules/software
- #------------------------------------------------------------------------------
+ibm_profile::mq_os_group:        mqm
+ibm_profile::mq_os_user:         mqm
+ibm_profile::iib_os_group:       mqbrkrs 
+ibm_profile::iib_os_user:        iibadmin
+ibm_profile::source_location:    puppet:///modules/software
+ibm_profile::mq_managers:        {}
+ibm_profile::iib_brokers:        {}
+#------------------------------------------------------------------------------
 #
 # Sysctl
 #
@@ -30,10 +34,10 @@ ibm_profile::mq_machine::sysctl::list:
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::limits::list:
-  "%{::ibm_profile::os_user}/nofile":
+  "%{::ibm_profile::mq_os_user}/nofile":
     soft: 20480
     hard: 20480
-  "%{::ibm_profile::os_user}/nproc":
+  "%{::ibm_profile::mq_os_user}/nproc":
     soft: 4096
     hard: 4096
 #------------------------------------------------------------------------------
@@ -42,7 +46,7 @@ ibm_profile::mq_machine::limits::list:
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::groups_and_users::groups:
-  "%{::ibm_profile::os_group}": 
+  "%{::ibm_profile::mq_os_group}": 
     gid:  1001    
 #------------------------------------------------------------------------------
 #
@@ -50,11 +54,11 @@ ibm_profile::mq_machine::groups_and_users::groups:
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::groups_and_users::users:
-  "%{::ibm_profile::os_user}":
+  "%{::ibm_profile::mq_os_user}":
     uid:        995
-    gid:        "%{::ibm_profile::os_group}"
-    home:       "/var/%{::ibm_profile::os_user}"
-    comment:    This user oracle was created by Puppet
+    gid:        "%{::ibm_profile::mq_os_group}"
+    home:       "/var/%{::ibm_profile::mq_os_user}"
+    comment:    This user was created by Puppet
     managehome: true
     password:   '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.'
     shell:      '/bin/bash'
@@ -94,8 +98,6 @@ ibm_profile::mq_machine::software::install_amqp:       false
 # MQ managers
 #
 #------------------------------------------------------------------------------
-ibm_profile::mq_managers:
-  QM1: {}
 ibm_profile::mq_machine::manager_setup::defaults: {}
 #------------------------------------------------------------------------------
 #
@@ -130,3 +132,101 @@ ibm_profile::mq_machine::authorization_setup::authentication_info:          {}
 ibm_profile::mq_machine::authorization_setup::authorization_defaults:       {}
 ibm_profile::mq_machine::authorization_setup::authorization_list:           {}
 ibm_profile::mq_machine::authorization_setup::channel_authentication_list:  {}
+#------------------------------------------------------------------------------
+#
+# Sysctl Nothing for now, but we keep it here for future reference
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::sysctl::list: {}
+#------------------------------------------------------------------------------
+#
+# Limits. Nothing for now, but we keep it here for future reference
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::limits::list: {}
+#------------------------------------------------------------------------------
+#
+# Groups to create
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::groups_and_users::groups:
+  "%{ibm_profile::mq_os_group}": 
+    gid:  1001
+  mqbrkrs: 
+    gid:  1005
+#------------------------------------------------------------------------------
+#
+# Users to create
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::groups_and_users::users:
+  "%{::ibm_profile::iib_os_user}":
+    gid:        "%{::ibm_profile::iib_os_group}"
+    home:       "/var/%{::ibm_profile::iib_os_user}"
+    groups:     ["%{ibm_profile::mq_os_group}", "%{ibm_profile::iib_os_group}"]
+    comment:    This user was created by Puppet
+    managehome: true
+    password:   '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.'
+    shell:      '/bin/bash'
+#------------------------------------------------------------------------------
+#
+# Extra required packages
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::packages::list:
+- unzip
+#------------------------------------------------------------------------------
+#
+# IIB Firewall rules
+#
+#------------------------------------------------------------------------------
+# Each connector has its own assigned port, which is allocated from a range of numbers, as required.
+# The default range for the HTTPConnector is 7800 - 7842; 
+# the default range for the HTTPSConnector is 7843 - 7884. The first integration server to start an embedded
+#  listener is allocated port 7800, the second is allocated 7801, and so on."
+ibm_profile::iib_machine::firewall::ports:
+  - 7800
+  - 7801
+  - 7802
+  - 7843
+  - 7884
+ibm_profile::iib_machine::firewall::manage_service: true
+#------------------------------------------------------------------------------
+#
+# IIB software
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::software::version:          10.0.0.11
+ibm_profile::iib_machine::software::source_location:  "%{ibm_profile::source_location}"
+ibm_profile::iib_machine::software::iib_os_user:      "%{ibm_profile::iib_os_user}"
+
+#------------------------------------------------------------------------------
+#
+# IIB broker setup
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::broker_setup::list:         "%{alias('ibm_profile::iib_brokers')}"
+ibm_profile::iib_machine::broker_setup::defaults:     {}
+#------------------------------------------------------------------------------
+#
+# IIB server setup
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::server_setup::list:         {}
+ibm_profile::iib_machine::server_setup::defaults:     {}
+#
+# IIB deployments
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::deployments::list:         {}
+ibm_profile::iib_machine::deployments::defaults:     {}
+#------------------------------------------------------------------------------
+#
+# IIB autostart
+#
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::autostart::list:            "%{alias('ibm_profile::iib_brokers')}"
+ibm_profile::iib_machine::autostart::version:         "%{ibm_profile::iib_machine::software::version}"
+ibm_profile::iib_machine::autostart::iib_version:     "%{ibm_profile::iib_machine::software::version}"
+ibm_profile::iib_machine::autostart::iib_os_user:     "%{ibm_profile::iib_os_user}"
+ibm_profile::iib_machine::autostart::iib_os_group:    "%{ibm_profile::iib_os_group}"

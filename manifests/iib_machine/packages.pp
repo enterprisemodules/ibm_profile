@@ -1,9 +1,9 @@
 #++--++
 #--++--
-class ibm_profile::mq_machine::packages(
+class ibm_profile::iib_machine::packages(
   Array[String[1]] $list,
 ) inherits ibm_profile {
-  echo {'MQ Packages':
+  echo {'IIB Packages':
     withpath => false,
   }
 

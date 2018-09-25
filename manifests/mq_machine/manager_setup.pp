@@ -8,5 +8,5 @@ class ibm_profile::mq_machine::manager_setup(
     withpath => false,
   }
   $final_defaults = merge($defaults, { 'ensure' => 'present'})
-  create_resources('mq_manager', $list, $final_defaults)
+  ensure_resources('mq_manager', $list, $final_defaults)
 }

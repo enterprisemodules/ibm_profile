@@ -1,10 +1,10 @@
 #++--++
 #--++--
-class ibm_profile::mq_machine::groups_and_users(
+class ibm_profile::iib_machine::groups_and_users(
   Hash  $users,
   Hash  $groups,
 ) inherits ibm_profile {
-  echo {'MQ Groups and Users':
+  echo {'IIB Groups and Users':
     withpath => false,
   }
   $defaults = { 'ensure' => 'present'}

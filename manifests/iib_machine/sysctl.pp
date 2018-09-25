@@ -1,9 +1,9 @@
 #++--++
 #--++--
-class ibm_profile::mq_machine::sysctl(
+class ibm_profile::iib_machine::sysctl(
   Hash $list
 ) inherits ibm_profile {
-  echo {'MQ Sysctl':
+  echo {'IIB Sysctl':
     withpath => false,
   }
 
