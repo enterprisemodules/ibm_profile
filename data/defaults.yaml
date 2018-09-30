@@ -107,31 +107,46 @@ ibm_profile::mq_machine::manager_setup::defaults: {}
 #
 # For queues
 #
+#------------------------------------------------------------------------------
 ibm_profile::mq_machine::messaging_setup::queue_defaults: {}
 ibm_profile::mq_machine::messaging_setup::queue_list: {}
+#------------------------------------------------------------------------------
 #
 # For topics
 #
+#------------------------------------------------------------------------------
 ibm_profile::mq_machine::messaging_setup::topic_defaults: {}
 ibm_profile::mq_machine::messaging_setup::topic_list: {}
+#------------------------------------------------------------------------------
 #
 # For listeners
 #
+#------------------------------------------------------------------------------
 ibm_profile::mq_machine::messaging_setup::listener_defaults: {}
 ibm_profile::mq_machine::messaging_setup::listener_list: {}
+#------------------------------------------------------------------------------
 #
 # For channels
 #
+#------------------------------------------------------------------------------
 ibm_profile::mq_machine::messaging_setup::channel_defaults: {}
 ibm_profile::mq_machine::messaging_setup::channel_list: {}
+#------------------------------------------------------------------------------
 #
 # For security and authentication
 #
+#------------------------------------------------------------------------------
 ibm_profile::mq_machine::authorization_setup::authentication_defaults:      {}
 ibm_profile::mq_machine::authorization_setup::authentication_info:          {}
 ibm_profile::mq_machine::authorization_setup::authorization_defaults:       {}
 ibm_profile::mq_machine::authorization_setup::authorization_list:           {}
 ibm_profile::mq_machine::authorization_setup::channel_authentication_list:  {}
+#------------------------------------------------------------------------------
+#
+# MQ Web settings
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::mq_web::list: {}
 #------------------------------------------------------------------------------
 #
 # Sysctl Nothing for now, but we keep it here for future reference

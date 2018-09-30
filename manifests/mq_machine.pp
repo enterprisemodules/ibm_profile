@@ -188,6 +188,7 @@ class ibm_profile::mq_machine(
   Optional[String] $before_autostart = undef,
   Optional[String] $before_authorization_setup = undef,
   Optional[String] $before_messaging_setup = undef,
+  Optional[String] $before_mq_web = undef,
   Optional[String] $sysctl = undef,
   Optional[String] $limits = undef,
   Optional[String] $groups_and_users = undef,
@@ -198,6 +199,7 @@ class ibm_profile::mq_machine(
   Optional[String] $autostart = undef,
   Optional[String] $authorization_setup = undef,
   Optional[String] $messaging_setup = undef,
+  Optional[String] $mq_web = undef,
   Optional[String] $after_sysctl = undef,
   Optional[String] $after_limits = undef,
   Optional[String] $after_groups_and_users = undef,
@@ -208,6 +210,7 @@ class ibm_profile::mq_machine(
   Optional[String] $after_autostart = undef,
   Optional[String] $after_authorization_setup = undef,
   Optional[String] $after_messaging_setup = undef,
+  Optional[String] $after_mq_web = undef,
 ) inherits ibm_profile {
   easy_type::staged_contain([
     'ibm_profile::mq_machine::sysctl',
@@ -220,5 +223,6 @@ class ibm_profile::mq_machine(
     'ibm_profile::mq_machine::autostart',
     'ibm_profile::mq_machine::authorization_setup',
     'ibm_profile::mq_machine::messaging_setup',
+    'ibm_profile::mq_machine::mq_web',
   ])
 }
