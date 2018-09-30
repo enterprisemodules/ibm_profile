@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.4.0
+
+**Features**
+
+- [mq_machine/software] Use more default settings
+- [mq_web] Add support for configuring MQ web
+- [mq_machine/software] Add support for MQ 9.1 add-on’s
+- [iib_machine] Initial commit
+
+**Bugfixes**
+
+- [messanging_setup] Fix wrong type in messaging setup
+
 ## Release 0.3.0
 
 **Features**
