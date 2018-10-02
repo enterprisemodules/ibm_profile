@@ -222,6 +222,7 @@ ibm_profile::iib_machine::software::iib_os_user:      "%{ibm_profile::iib_os_use
 #------------------------------------------------------------------------------
 ibm_profile::iib_machine::broker_setup::list:         "%{alias('ibm_profile::iib_brokers')}"
 ibm_profile::iib_machine::broker_setup::defaults:     {}
+ibm_profile::iib_machine::broker_setup::properties:   {}
 #------------------------------------------------------------------------------
 #
 # IIB server setup
@@ -229,6 +230,7 @@ ibm_profile::iib_machine::broker_setup::defaults:     {}
 #------------------------------------------------------------------------------
 ibm_profile::iib_machine::server_setup::list:         {}
 ibm_profile::iib_machine::server_setup::defaults:     {}
+ibm_profile::iib_machine::server_setup::properties:   {}
 #
 # IIB deployments
 #
