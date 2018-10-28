@@ -4,6 +4,7 @@ class ibm_profile::iib_machine::broker_setup(
   Hash $defaults,
   Hash $list,
   Hash $properties,
+  Hash $credentials,
 ) inherits ibm_profile {
   echo {"Ensure IIB Brokers(s) ${list.keys.join(', ')}":
     withpath => false,
@@ -12,4 +13,5 @@ class ibm_profile::iib_machine::broker_setup(
   ensure_resources('iib_broker', $list, $final_defaults)
 
   ensure_resources('iib_property', $properties)
+  ensure_resources('iib_credential', $credentials)
 }
