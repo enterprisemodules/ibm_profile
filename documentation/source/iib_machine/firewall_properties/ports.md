@@ -1,0 +1,1 @@
+The ports to open in the firewall.

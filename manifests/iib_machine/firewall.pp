@@ -1,11 +1,17 @@
 #++--++
 #
-# ibm_profile::firewall
+# ibm_profile::iib_machine::firewall
 #
-# @summary This class is the default implementation for setting the firewall rules for your WebLogic sever.
+# @summary This class is the default implementation for setting the firewall rules for your IIB sever.
 # Using hiera, you can customize some of the aspects of this process.
 # 
-# When these customizations aren't enough, you can replace the class with your own class. See [ibm_profile::weblogic](./weblogic.html) for an explanation on how to do this.
+# When these customizations aren't enough, you can replace the class with your own class. See [ibm_profile::iib_machine](./iib_machine.html) for an explanation on how to do this.
+#
+# @param ports
+#    The ports to open in the firewall.
+#
+# @param manage_service
+#    Specifies if you want to manege the `firewalld` or `iptables` service.
 #
 #--++--
 class ibm_profile::iib_machine::firewall(

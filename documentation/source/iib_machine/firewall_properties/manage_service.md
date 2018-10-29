@@ -1,0 +1,1 @@
+Specifies if you want to manege the `firewalld` or `iptables` service.

@@ -1,4 +1,34 @@
 #++--++
+#
+# ibm_profile::iib_machine::broker_setup
+#
+# @summary This class allows you to setup your IIB broker configuration.
+# It has support for creating and managing multiple brokers. Use use a `yaml` representation of [iib_brokers](/docs/iib_config/iib_broker.html) to specify all properties and params of the brokers you need. When a lot of the brokers have the same defaults, use the `defaults` parameter to specify a Hash of defaults.
+# 
+# Besides the initial broker configuration, you can also configure additional properties. Read about [iib_properties here](/docs/iib_config/iib_property.html).
+# 
+# This class also allows you to register used credentials. Use the `credentials` property for this. Read about [iib_credential here](/docs/iib_config/iib_credential.html)
+#
+# @param defaults
+#    a Hash of default properties added to all specfied Brokers.
+#    Use [iib_brokers](/docs/iib_config/iib_broker.html) to specify the defaults.
+#    The default value is: `{}`
+#
+# @param list
+#    The list of brokers to configure.
+#    Use use a `yaml` representation of [iib_brokers](/docs/iib_config/iib_broker.html) to specify all properties and params of the brokers you need. 
+#    The default value is fetched from the hiera key `ibm_profile::iib_brokers` and is `{}` by default.
+#
+# @param properties
+#    The list of IIB broker properties.
+#    Read about [iib_properties here](/docs/iib_config/iib_property.html). 
+#    The default value is: `{}`
+#
+# @param credentials
+#    The list of used credentials.
+#    Use the `credentials` property for this. Read about [iib_credential here](/docs/iib_config/iib_credential.html). 
+#    The default value is: `{}`
+#
 #--++--
 class ibm_profile::iib_machine::broker_setup(
   Hash $defaults,

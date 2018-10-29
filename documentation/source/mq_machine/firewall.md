@@ -1,17 +1,10 @@
-Use this value if you want to skip or use your own class for stage `firewall`.
+This class is the default implementation for setting the firewall rules for your MQ sever.
 
-## Use your own class
+Using hiera, you can customize some of the aspects of this process.
 
-You can use hiera to set this value. Here is an example:
+When these customizations aren't enough, you can replace the class with your own class. See [ibm_profile::mq_machine](./mq_machine.html) for an explanation on how to do this.
 
-```yaml
-ibm_profile::weblogic::firewall:  my_module::my_class
-```
-
-## Skip
-
-You can use hiera to set this value. Here is an example:
-
-```yaml
-ibm_profile::weblogic::firewall:  skip
-```
+<%- include_attributes [
+  :ports,
+  :manage_service,
+] %>

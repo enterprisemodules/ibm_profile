@@ -1,4 +1,59 @@
 #++--++
+#
+# ibm_profile::mq_machine::messaging_setup
+#
+# @summary This class allows you to setup your MQ messaging setup.
+# It has support for:
+# 
+# - queue's   (See [mq_queue](/docs/mq_config/mq_queue.html))
+# - topics    (See [mq_topic](/docs/mq_config/mq_topic.html))
+# - listeners (See [mq_listener](/docs/mq_config/mq_listener.html))
+# - channels  (See [mq_channel](/docs/mq_config/mq_channel.html))
+# 
+#  Use use a `yaml` representation of the specfied resource to specify all properties and params of the objects you need. 
+#  
+#  When a lot of the objects  have the same defaults, use the `defaults` parameter to specify a Hash of defaults.
+#
+# @param queue_list
+#    A Hash of MQ queues.
+#    Use use a `yaml` representation of [mq_queue](/docs/mq_config/mq_queue.html) to specify all properties and params of the MQ queues you need. 
+#    The default is: `{}`
+#
+# @param queue_defaults
+#    The defaults to use for all MQ queues.
+#    Use use a `yaml` representation of [mq_queue](/docs/mq_config/mq_queue.html) to specify all properties and params of the MQ queues you need. 
+#    The default is: `{}`
+#
+# @param topic_list
+#    A Hash of MQ topics.
+#    Use use a `yaml` representation of [mq_topic](/docs/mq_config/mq_topic.html) to specify all properties and params of the MQ topics you need. 
+#    The default is: `{}`
+#
+# @param topic_defaults
+#    The defaults to use for all MQ topics.
+#    Use use a `yaml` representation of [mq_topic](/docs/mq_config/mq_topic.html) to specify all properties and params of the MQ topics you need. 
+#    The default is: `{}`
+#
+# @param listener_list
+#    A Hash of MQ listeners.
+#    Use use a `yaml` representation of [mq_listener](/docs/mq_config/mq_listener.html) to specify all properties and params of the MQ listeners you need. 
+#    The default is: `{}`
+#
+# @param listener_defaults
+#    The defaults to use for all MQ listeners.
+#    Use use a `yaml` representation of [mq_listener](/docs/mq_config/mq_listener.html) to specify all properties and params of the MQ listeners you need. 
+#    The default is: `{}`
+#
+# @param channel_list
+#    A Hash of MQ channels.
+#    Use use a `yaml` representation of [mq_channel](/docs/mq_config/mq_channel.html) to specify all properties and params of the MQ channels you need. 
+#    The default is: `{}`
+#
+# @param channel_defaults
+#    The defaults to use for all MQ channels.
+#    Use use a `yaml` representation of [mq_channel](/docs/mq_config/mq_channel.html) to specify all properties and params of the MQ channels you need. 
+#    The default is: `{}`
+#
 #--++--
 class ibm_profile::mq_machine::messaging_setup(
   Hash $queue_list,

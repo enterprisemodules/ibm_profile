@@ -2,114 +2,149 @@
 #
 # ibm_profile::mq_machine
 #
-# @summary 
-# This is a highly customizable Puppet profile class to define a WebLogic Software and its requirements on your system. At its core just adding:```contain ibm_profile::weblogic```Is enough to get a WebLogic 12.2.1.3 installed on your system.But sometimes you have specific uses cases that are not handled well by the standard classes. This profile class allows you to add your own code to the execution.## StagesDefining and starting a WebLogic Admin Server on you system goes through several stages(These are not puppet stages):- [`sysctl`](/docs/ibm_profile/sysctl.html)            Set required sysctl parameters- [`limits`](/docs/ibm_profile/limits.html)            Set OS security limits- [`packages`](/docs/ibm_profile/packages.html)          Install required packages- [`groups_and_users`](/docs/ibm_profile/groups_and_users.html)  Create required OS users and groups- [`ssh_setup`](/docs/ibm_profile/ssh_setup.html)         Setup SSH for accounts- [`firewall`](/docs/ibm_profile/firewall.html)          Setup the firewall- [`java_software`](/docs/ibm_profile/java_software.html)     Install the java software- [`wls_software`](/docs/ibm_profile/wls_software.html)      Install the WebLogic software- [`wls_patches`](/docs/ibm_profile/wls_patches.html)       Install the WebLogic patchesAll these stages have a default implementation. This implementation is suitable to get started with. These classed all have parameters you can customize through hiera values. The defaults are specified in the module's `data/default.yaml` file.## before classesBut sometimes this is not enough, and you would like to add some extra definitions, you can, for example, add a Puppet class to be executed after the `packages` stage is done and before the `groups_and_users` is done. You can do this by adding the next line to your yaml data:```yamlibm_profile::weblogic::groups_and_users:   my_profile::my_extra_class```## after classesYou can do the same when you want to add code after one of the stage classes:```yamlibm_profile::weblogic::firewall:   my_profile::my_extra_class```## SkippingSometimes organizations use different modules and mechanisms to implement a feature, and you want to skip the class:```yamlibm_profile::weblogic::java_software:   skip```## ReplacingOr provide your own implementation:```yamlibm_profile::weblogic::wls_datasources:   my_profile::my_own_implementation```This mechanism can be used for all named stages and makes it easy to move from an easy setup with a running standard WebLogic software installation to a fully customized setup using a lot of your own classes plugged in.Look at the description of the stages and their properties.
+# @summary ## The `ibm_profile::mq_machine` class
+# The `ibm_profile::mq_machine` class allows you to get a full fledged MQ setup on your system in a minute. It contains all default settings needed, but you can also tweak it in a lot of ways. It contains the following stages (These are not puppet stages):
+# 
+# - [`sysctl`](/docs/ibm_profile/mq_machine/sysctl.html)       (Set all required sysctl parameters)
+# - [`limits`](/docs/ibm_profile/mq_machine/limits.html)        (Set all required OS limits)
+# - [`packages`](/docs/ibm_profile/mq_machine/packages.html)    (Install all required packages)
+# - [`groups_and_users`](/docs/ibm_profile/mq_machine/groups_and_users.html) (Create required groups and users)
+# - [`firewall`](/docs/ibm_profile/mq_machine/firewall.html)      (Open required firewall rules)
+# - [`software`](/docs/ibm_profile/mq_machine/software.html)      (Install required IBM MQ software)
+# - [`manager_setup`](/docs/ibm_profile/mq_machine/manager_setup.html) (Configure one or more MQ managers)
+# - [`autostart`](/docs/ibm_profile/mq_machine/autostart.html)  (Ensure autostart for the MQ managers)
+# - [`authorization_setup`](/docs/ibm_profile/mq_machine/authorization_setup.html) (Setup MQ authorization)
+# - [`messaging_setup`](/docs/ibm_profile/mq_machine/messaging_setup.html) (Setup MQ messaging including queues, topics etc.)
+# - [`mq_web`](/docs/ibm_profile/mq_machine/mq_web.html) (Enable MQ Web)
+# 
+# All these stages have a default implementation. This implementation is suitable to get started with. These classed all have parameters you can customize through hiera values. The defaults are specified in the module's `data/default.yaml` file. 
+# 
+# But sometimes this is not enough and you would like to add some extra definitions, you can, for example, add a Puppet class to be executed after the `systctl` stage is done and before the `limits` is done. You can do this by adding the next line to your yaml data:
+# 
+# ```yaml
+# ibm_profile::mq_machine::before_sysctl:   my_profile::my_extra_class
+# ```
+# or after:
+# 
+# ```yaml
+# ibm_profile::mq_machine::after_sysctl:   my_profile::my_extra_class
+# ```
+# 
+# If you want to, you can also skip this provided class:
+# 
+# ```yaml
+# ibm_profile::mq_machine::sysctl:   skip
+# ```
+# 
+# Or provide your own implementation:
+# 
+# ```yaml
+# ibm_profile::mq_machine::sysctl:   my_profile::my_own_implementation
+# ```
+# 
+# This mechanism can be used for all named stages and makes it easy to move from an easy setup with a running standard database to a fully customized setup using a lot of your own classes plugged in.
 #
-# @param [Optional[String]] after_firewall
-#    The name of the class you want to execute directly **after** the `firewall` class.
+# @param [Optional[String]] before_sysctl
+#    The name of the class you want to execute directly **before** the `sysctl` class.
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::after_firewall:  my_module::my_class
+#    ibm_profile::mq_machine::before_sysctl:  my_module::my_class
 #    ```
 #
-# @param [Optional[String]] after_groups_and_users
-#    The name of the class you want to execute directly **after** the `groups_and_usesr` class.
+# @param [Optional[String]] before_limits
+#    The name of the class you want to execute directly **before** the `limits` class.
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::after_groups_and_usesr:  my_module::my_class
-#    ```
-#
-# @param after_java_software
-#    
-#
-# @param [Optional[String]] after_limits
-#    The name of the class you want to execute directly **after** the `limits` class.
-#    You can use hiera to set this value. Here is an example:
-#    ```yaml
-#    ibm_profile::weblogic::after_limits:  my_module::my_class
-#    ```
-#
-# @param [Optional[String]] after_packages
-#    The name of the class you want to execute directly **after** the `packages` class.
-#    You can use hiera to set this value. Here is an example:
-#    ```yaml
-#    ibm_profile::weblogic::after_packages:  my_module::my_class
-#    ```
-#
-# @param after_ssh_setup
-#    
-#
-# @param [Optional[String]] after_sysctl
-#    The name of the class you want to execute directly **after** the `sysctl` class.
-#    You can use hiera to set this value. Here is an example:
-#    ```yaml
-#    ibm_profile::weblogic::after_sysctl:  my_module::my_class
-#    ```
-#
-# @param after_wls_patches
-#    
-#
-# @param after_wls_software
-#    
-#
-# @param [Optional[String]] before_firewall
-#    The name of the class you want to execute directly **before** the `firewall` class.
-#    You can use hiera to set this value. Here is an example:
-#    ```yaml
-#    ibm_profile::weblogic::before_firewall:  my_module::my_class
+#    ibm_profile::mq_machine::before_limits:  my_module::my_class
 #    ```
 #
 # @param [Optional[String]] before_groups_and_users
 #    The name of the class you want to execute directly **before** the `groups_and_users` class.
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::before_groups_and_users:  my_module::my_class
-#    ```
-#
-# @param before_java_software
-#    
-#
-# @param [Optional[String]] before_limits
-#    The name of the class you want to execute directly **before** the `limits` class.
-#    You can use hiera to set this value. Here is an example:
-#    ```yaml
-#    ibm_profile::weblogic::before_limits:  my_module::my_class
+#    ibm_profile::mq_machine::before_groups_and_users:  my_module::my_class
 #    ```
 #
 # @param [Optional[String]] before_packages
 #    The name of the class you want to execute directly **before** the `packages` class.
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::before_packages:  my_module::my_class
+#    ibm_profile::mq_machine::before_packages:  my_module::my_class
 #    ```
 #
-# @param before_ssh_setup
-#    
-#
-# @param [Optional[String]] before_sysctl
-#    The name of the class you want to execute directly **before** the `sysctl` class.
+# @param [Optional[String]] before_firewall
+#    The name of the class you want to execute directly **before** the `firewall` class.
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::before_sysctl:  my_module::my_class
+#    ibm_profile::mq_machine::before_firewall:  my_module::my_class
 #    ```
 #
-# @param before_wls_patches
-#    
+# @param [Optional[String]] before_software
+#    The name of the class you want to execute directly **before** the `software` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::before_software:  my_module::my_class
+#    ```
 #
-# @param before_wls_software
-#    
+# @param [Optional[String]] before_manager_setup
+#    The name of the class you want to execute directly **before** the `manager_setup` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::before_manager_setup:  my_module::my_class
+#    ```
 #
-# @param [Optional[String]] firewall
-#    Use this value if you want to skip or use your own class for stage `firewall`.
+# @param [Optional[String]] before_autostart
+#    The name of the class you want to execute directly **before** the `autostart` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::before_autostart:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] before_authorization_setup
+#    The name of the class you want to execute directly **before** the `authorization` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::before_authorization:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] before_messaging_setup
+#    The name of the class you want to execute directly **before** the `messaging_setup` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::before_messaging_setup:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] before_mq_web
+#    The name of the class you want to execute directly **before** the `mq_web` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::before_mq_web:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] sysctl
+#    Use this value if you want to skip or use your own class for stage `sysctl`.
 #    ## Use your own class
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::firewall:  my_module::my_class
+#    ibm_profile::mq_machine::sysctl:  my_module::my_class
 #    ```
 #    ## Skip
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::firewall:  skip
+#    ibm_profile::mq_machine::sysctl:  skip
+#    ```
+#
+# @param [Optional[String]] limits
+#    Use this value if you want to skip or use your own class for stage `limits`.
+#    ## Use your own class
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::limits:  my_module::my_class
+#    ```
+#    ## Skip
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::limits:  skip
 #    ```
 #
 # @param [Optional[String]] groups_and_users
@@ -117,28 +152,12 @@
 #    ## Use your own class
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::groups_and_users:  my_module::my_class
+#    ibm_profile::mq_machine::groups_and_users:  my_module::my_class
 #    ```
 #    ## Skip
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::groups_and_users:  skip
-#    ```
-#
-# @param java_software
-#    
-#
-# @param [Optional[String]] limits
-#    Use this value if you want to skip or use your own class for stage `limits`.
-#    ## Use your own class
-#    You can use hiera to set this value. Here is an example:
-#    ```yaml
-#    ibm_profile::weblogic::limits:  my_module::my_class
-#    ```
-#    ## Skip
-#    You can use hiera to set this value. Here is an example:
-#    ```yaml
-#    ibm_profile::weblogic::limits:  skip
+#    ibm_profile::mq_machine::groups_and_users:  skip
 #    ```
 #
 # @param [Optional[String]] packages
@@ -146,35 +165,181 @@
 #    ## Use your own class
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::packages:  my_module::my_class
+#    ibm_profile::mq_machine::packages:  my_module::my_class
 #    ```
 #    ## Skip
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::packages:  skip
+#    ibm_profile::mq_machine::packages:  skip
 #    ```
 #
-# @param ssh_setup
-#    
-#
-# @param [Optional[String]] sysctl
-#    Use this value if you want to skip or use your own class for stage `sysctl`.
+# @param [Optional[String]] firewall
+#    Use this value if you want to skip or use your own class for stage `firewall`.
 #    ## Use your own class
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::sysctl:  my_module::my_class
+#    ibm_profile::mq_machine::firewall:  my_module::my_class
 #    ```
 #    ## Skip
 #    You can use hiera to set this value. Here is an example:
 #    ```yaml
-#    ibm_profile::weblogic::sysctl:  skip
+#    ibm_profile::mq_machine::firewall:  skip
 #    ```
 #
-# @param wls_patches
-#    
+# @param [Optional[String]] software
+#    Use this value if you want to skip or use your own class for stage `software`.
+#    ## Use your own class
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::software:  my_module::my_class
+#    ```
+#    ## Skip
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::software:  skip
+#    ```
 #
-# @param wls_software
-#    
+# @param [Optional[String]] manager_setup
+#    Use this value if you want to skip or use your own class for stage `manager_setup`.
+#    ## Use your own class
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::manager_setup:  my_module::my_class
+#    ```
+#    ## Skip
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::manager_setup:  skip
+#    ```
+#
+# @param [Optional[String]] autostart
+#    Use this value if you want to skip or use your own class for stage `autostart`.
+#    ## Use your own class
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::autostart:  my_module::my_class
+#    ```
+#    ## Skip
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::autostart:  skip
+#    ```
+#
+# @param [Optional[String]] authorization_setup
+#    Use this value if you want to skip or use your own class for stage `authorization_setup`.
+#    ## Use your own class
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::authorization_setup:  my_module::my_class
+#    ```
+#    ## Skip
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::authorization_setup:  skip
+#    ```
+#
+# @param [Optional[String]] messaging_setup
+#    Use this value if you want to skip or use your own class for stage `messaging_setup`.
+#    ## Use your own class
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::messaging_setup:  my_module::my_class
+#    ```
+#    ## Skip
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::messaging_setup:  skip
+#    ```
+#
+# @param [Optional[String]] mq_web
+#    Use this value if you want to skip or use your own class for stage `mq_web`.
+#    ## Use your own class
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::mq_web:  my_module::my_class
+#    ```
+#    ## Skip
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::mq_web:  skip
+#    ```
+#
+# @param [Optional[String]] after_sysctl
+#    The name of the class you want to execute directly **after** the `sysctl` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_sysctl:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_limits
+#    The name of the class you want to execute directly **after** the `limits` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_limits:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_groups_and_users
+#    The name of the class you want to execute directly **after** the `groups_and_users` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_groups_and_users:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_packages
+#    The name of the class you want to execute directly **after** the `packages` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_packages:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_firewall
+#    The name of the class you want to execute directly **after** the `firewall` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_firewall:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_software
+#    The name of the class you want to execute directly **after** the `software` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_software:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_manager_setup
+#    The name of the class you want to execute directly **after** the `manager_setup` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_manager_setup:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_autostart
+#    The name of the class you want to execute directly **after** the `autostart` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_autostart:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_authorization_setup
+#    The name of the class you want to execute directly **after** the `authorization_setup` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_authorization_setup:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_messaging_setup
+#    The name of the class you want to execute directly **after** the `messaging_setup` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_messaging_setup:  my_module::my_class
+#    ```
+#
+# @param [Optional[String]] after_mq_web
+#    The name of the class you want to execute directly **after** the `mq_web` class.
+#    You can use hiera to set this value. Here is an example:
+#    ```yaml
+#    ibm_profile::mq_machine::after_mq_web:  my_module::my_class
+#    ```
 #
 #--++--
 class ibm_profile::mq_machine(

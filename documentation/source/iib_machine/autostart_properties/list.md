@@ -1,0 +1,1 @@
+A list of brokers. The default value is fetched from the hiera key `ibm_profile::iib_brokers`. To fill this list use a `yaml` representation of [iib_brokers](/docs/iib_config/iib_broker.html)

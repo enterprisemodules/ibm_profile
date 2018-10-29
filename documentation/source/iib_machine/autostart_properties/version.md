@@ -1,0 +1,1 @@
+The IIB version to use when autostarting the brokers. The default is value is fetched from the hiera key `ibm_profile::iib_machine::software::version`.
