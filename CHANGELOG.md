@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.5.0
+
+**Features**
+
+- [documentation] Add initial documentation
+- [broker_setup] Add support for managing iib credentials
+- [iib_machine] Add support for server and broker properties
+
+**Bugfixes**
+
+- None
+
 ## Release 0.4.0
 
 **Features**
