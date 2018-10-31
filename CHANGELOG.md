@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.5.3
+
+**Features**
+
+None
+
+**Bugfixes**
+
+- [release] Fix README
+
 ## Release 0.5.2
 
 **Features**
@@ -11,7 +21,6 @@ None
 **Bugfixes**
 
 - [release] Fix links in README
-
 
 ## Release 0.5.1
 
