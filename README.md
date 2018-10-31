@@ -35,13 +35,13 @@ The `ibm_profile::mq_machine` class allows you to get a full fledged MQ setup on
 - [`sysctl`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/sysctl.html)       (Set all required sysctl parameters)
 - [`limits`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/limits.html)        (Set all required OS limits)
 - [`packages`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/packages.html)    (Install all required packages)
-- [`groups_and_users`]http://www.enterprisemodules.com(/docs/ibm_profile/mq_machine/groups_and_users.html) (Create required groups and users)
+- [`groups_and_users`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/groups_and_users.html) (Create required groups and users)
 - [`firewall`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/firewall.html)      (Open required firewall rules)
 - [`software`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/software.html)      (Install required IBM MQ software)
-- [`manager_setup`]http://www.enterprisemodules.com(/docs/ibm_profile/mq_machine/manager_setup.html) (Configure one or more MQ managers)
+- [`manager_setup`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/manager_setup.html) (Configure one or more MQ managers)
 - [`autostart`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/autostart.html)  (Ensure autostart for the MQ managers)
-- [`authorization_setup`]http://www.enterprisemodules.com(/docs/ibm_profile/mq_machine/authorization_setup.html) (Setup MQ authorization)
-- [`messaging_setup`]http://www.enterprisemodules.com(/docs/ibm_profile/mq_machine/messaging_setup.html) (Setup MQ messaging including queues, topics etc.)
+- [`authorization_setup`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/authorization_setup.html) (Setup MQ authorization)
+- [`messaging_setup`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/messaging_setup.html) (Setup MQ messaging including queues, topics etc.)
 - [`mq_web`](http://www.enterprisemodules.com/docs/ibm_profile/mq_machine/mq_web.html) (Enable MQ Web)
 
 All these stages have a default implementation. This implementation is suitable to get started with. These classed all have parameters you can customize through hiera values. The defaults are specified in the module's `data/default.yaml` file. 
@@ -79,11 +79,11 @@ Besides setting up MQ, the `ibm_profile` module also has support for setting up 
 - [`sysctl`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/sysctl.html)                   (Set all required sysctl parameters)
 - [`limits`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/limits.html)                   (Set all required OS limits)
 - [`packages`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/packages.html)               (Install all required packages
-- [`groups_and_users`]http://www.enterprisemodules.com(/docs/ibm_profile/iib_machine/groups_and_users.html) (Create required groups and users)
+- [`groups_and_users`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/groups_and_users.html) (Create required groups and users)
 - [`firewall`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/firewall.html)                 (Open required firewall rules)
 - [`software`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/software.html)                 (Install required IBM MQ software)
-- [`broker_setup`]http://www.enterprisemodules.com(/docs/ibm_profile/iib_machine/broker_setup.html)         (Setup the IIB broker(s))
-- [`server_setup`]http://www.enterprisemodules.com(/docs/ibm_profile/iib_machine/server_setup.html)         (Setup ths IIB server(s))
+- [`broker_setup`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/broker_setup.html)         (Setup the IIB broker(s))
+- [`server_setup`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/server_setup.html)         (Setup ths IIB server(s))
 - [`deployments`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/deployments.html)           (Manage the deployments)
 - [`autostart`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/autostart.html)               (Ensure autostart for the IIB brokers)
 
@@ -136,14 +136,16 @@ This module uses some other public Puppet forge modules. Check the metadata to e
 
 #### We support MQ and IIB versions:
 
-[TODO]
+- MQ 8 all fixpacks
+- MQ 9 all fixpacks
+- IIB 10 fixpack 6 to 14
 
 ### Installing the ibm_profile module
 
 To install these modules, you can use a `Puppetfile`
 
 ```
-mod 'enterprisemodules/ibm_profile'               ,'0.1.0'
+mod 'enterprisemodules/ibm_profile'               ,'0.x.0'
 ```
 
 Then use the `librarian-puppet` or `r10K` to install the software.
@@ -155,16 +157,42 @@ puppet module install enterprisemodules-ibm_profile
 ```
 ## Usage
 
+### `ibm_profile::mq_machine`
+
 To get started, include the `ibm_profile::mq_machine` class in your role, make sure you have a module called `software` that has a folder `files` and that directory contains the next files:
 
-[TODO]
+- IBM_MQ_9.0.0.0_LINUX_X86-64.tar.gz 
 
-Run Puppet and you have a Server with MQ installed a MQ Queue Manager named ??
-Check the documentation for all the settings you can manage. Here is a list of the most basic stuff you'd probably want to change:
+Add the following line to the hiera data:
 
 ```yaml
-[TODO]
+ibm_profile::mq_managers:
+  MQ01:
+    ensure: present
 ```
+
+Run Puppet and you have a Server with MQ installed a MQ Queue Manager named MQ01
+Check the documentation for all the settings you can manage. 
+
+### `ibm_profile::iib_machine`
+
+To get started, include the `ibm_profile::iib_machine` class in your role, make sure you have a module called `software` that has a folder `files` and that directory contains the next files:
+
+- 10.0.0-IIB-LINUXX64-FP0011.tar.gz
+
+Add the following line to the hiera data:
+
+```yaml
+ibm_profile::iib_brokers:
+  '10.0.0.11/BROKER_01':
+    ensure: present
+
+ibm_profile::iib_machine::server_setup::list:
+  '10.0.0.11/BROKER_01/SERVER_01':
+    ensure: present
+```
+
+Run Puppet and you have a Server with IIB Broker `BROKER_01` running and  server `SERVER_01` running on it. Check the documentation for all the settings you can manage. 
 
 ## Reference
 
@@ -175,9 +203,6 @@ Here you can find some more information regarding this puppet module:
 - [The `iib_install` documentation](https://www.enterprisemodules.com/docs/iib_install/description.html)
 - [The `iib_config` documentation](https://www.enterprisemodules.com/docs/iib_config/description.html)
 
-Here are related blog posts:
-
-[TODO]
 
 ## Limitations
 
