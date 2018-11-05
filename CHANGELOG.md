@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.5.4
+
+**Features**
+
+None
+
+**Bugfixes**
+
+- [mq/authorization_setup] Fix the support for MQ authorizations
+
 ## Release 0.5.3
 
 **Features**
