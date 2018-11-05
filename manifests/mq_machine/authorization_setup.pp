@@ -51,10 +51,10 @@ class ibm_profile::mq_machine::authorization_setup(
   mq_config::qmgrs_in($authentication_info).each |$qmgr| {
     if ! mq_config::is_standby($qmgr) {
       $list = mq_config::resources_for($authentication_info, $qmgr)
-      echo {'MQ Authorizations & Authentication settings': withpath => false,}
+      echo {'MQ Authentication settings': withpath => false,}
       ensure_resources('mq_authentication_info', $list, $authentication_defaults)
     } else {
-      echo {"MQ Authorizations & Authentication settings on ${qmgr} skipping because it is in standby mode": withpath => false}
+      echo {"MQ Authentication settings on ${qmgr} skipping because it is in standby mode": withpath => false}
     }
   }
 
@@ -67,4 +67,15 @@ class ibm_profile::mq_machine::authorization_setup(
       echo {"MQ channel authentication record(s) on ${qmgr} skipping because it is in standby mode": withpath => false}
     }
   }
+
+  mq_config::qmgrs_in($authorization_list).each |$qmgr| {
+    if ! mq_config::is_standby($qmgr) {
+      $list = mq_config::resources_for($authorization_list, $qmgr)
+      echo {'MQ Authorizations settings': withpath => false,}
+      ensure_resources('mq_authorization', $list, $authorization_defaults)
+    } else {
+      echo {"MQ Authorizations settings on ${qmgr} skipping because it is in standby mode": withpath => false}
+    }
+  }
+
 }
