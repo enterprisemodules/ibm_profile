@@ -1,5 +1,5 @@
 HOSTS:
-  wls1.example.com:
+  mqiib.example.com:
     roles:
       - master
       - agent

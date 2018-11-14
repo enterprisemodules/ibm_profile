@@ -51,18 +51,20 @@ RSpec.configure do |c|
       'saz-limits',
       'herculesteam-augeasproviders_sysctl',
       'enterprisemodules-easy_type',
-      'enterprisemodules-wls_install',
-      'enterprisemodules-wls_config',
+      'enterprisemodules-mq_install',
+      'enterprisemodules-mq_config',
+      'enterprisemodules-iib_install',
+      'enterprisemodules-iib_config',
       'puppetlabs-stdlib',
       'ipcrm-echo',
       'puppet-archive',
+      'AlexCline-dirtree',
       'herculesteam-augeasproviders_core',
       'herculesteam-augeasproviders_sysctl',
       'saz-limits',
       'puppetlabs-firewall',
       'crayfishx-firewalld',
       'fiddyspence-sleep',
-      'biemond-jdk7',
       ]
 
     modules.each { |module_name | on(master, "puppet module install #{module_name} --force")}

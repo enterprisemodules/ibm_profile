@@ -1,42 +1,37 @@
 require_relative '../spec_helper_acceptance'
 
-describe 'ibm_profile::admin_server' do
+describe 'ibm_profile::mq_machine' do
 
   manifest = <<-MANIFEST
     class {ibm_profile:
-      source => '/software',
+      source_location => '/software',
     }
-    class {ibm_profile::weblogic:
+
+    class {ibm_profile::mq_machine:
       sysctl => 'skip',
     }
 
-    contain ibm_profile::admin_server
+    contain ibm_profile::mq_machine
   MANIFEST
 
-  it 'installs the weblogic software' do
+  it 'installs the mq software' do
     apply_manifest(manifest, expect_changes: true)
   end
 
-  describe file('/opt/oracle/middleware12/oracle_common') do
+  describe file('/opt/mqm/bin') do
     it { should be_directory }
-    it { should be_owned_by('oracle') }
-    it { should be_grouped_into('dba') }
-    it { should be_mode(750) }
+    it { should be_owned_by('mqm') }
+    it { should be_grouped_into('mqm') }
+    it { should be_mode(555) }
   end
 
-  describe file('/opt/oracle/middleware12/wlserver') do
-    it { should be_directory }
-    it { should be_owned_by('oracle') }
-    it { should be_grouped_into('dba') }
-    it { should be_mode(750) }
+  ['MQSeriesRuntime', 'MQSeriesJRE', 'MQSeriesJava', 'MQSeriesServer' ].each do | package|
+    describe package('MQSeriesRuntime') do
+      it { should be_installed }
+      its('version') { should eq '9.0.0-0' }
+    end
   end
 
-  describe file('/opt/oracle/middleware12/oraInst.loc') do
-    it { should be_file }
-    it { should be_owned_by('oracle') }
-    it { should be_grouped_into('dba') }
-    it { should be_mode(640) }
-  end
 
   it 'is idempotent on second run' do
     apply_manifest(manifest, expect_changes: false)
