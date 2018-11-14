@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.0.0
+
+**Features**
+
+- Added the module to our CI
+
+**Bugfixes**
+
+None
+
+## Release 0.5.3
+
+**Features**
+
+None
+
 ## Release 0.5.4
 
 **Features**
