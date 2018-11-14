@@ -22,7 +22,7 @@ class ibm_profile::mq_machine::software(
     withpath => false,
   }
   class {'::mq_install::software':
-    source_location    => $source_location,
-    version            => $version,
+    source_location => $source_location,
+    version         => $version,
   }
 }
