@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ibm_profile::weblogic' do
+describe 'ibm_profile::mq_machine' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }

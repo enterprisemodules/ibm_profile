@@ -6,8 +6,10 @@ fixtures:
     ibm_profile: "#{source_dir}"
   forge_modules:
     easy_type:              enterprisemodules/easy_type
-    wls_install:            enterprisemodules/wls_install
-    wls_config:             enterprisemodules/wls_config
+    iib_install:            enterprisemodules/iib_install
+    iib_config:             enterprisemodules/iib_config
+    mq_install:             enterprisemodules/mq_install
+    mq_config:              enterprisemodules/mq_config
     stdlib:                 puppetlabs/stdlib
     echo:                   ipcrm/echo
     archive:                puppet/archive
@@ -17,5 +19,4 @@ fixtures:
     firewall:               puppetlabs-firewall
     firewalld:              crayfishx-firewalld
     sleep:                  fiddyspence-sleep
-    jdk7:                   biemond-jdk7
-
+    dirtree:                AlexCline-dirtree
