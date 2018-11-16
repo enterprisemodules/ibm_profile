@@ -47,7 +47,7 @@ ibm_profile::mq_machine::limits::list:
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::groups_and_users::groups:
   "%{::ibm_profile::mq_os_group}": 
-    gid:  1000    
+    gid:  1001    
 #------------------------------------------------------------------------------
 #
 # Users to create
@@ -55,7 +55,7 @@ ibm_profile::mq_machine::groups_and_users::groups:
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::groups_and_users::users:
   "%{::ibm_profile::mq_os_user}":
-    uid:        999
+    uid:        995
     gid:        "%{::ibm_profile::mq_os_group}"
     home:       "/var/%{::ibm_profile::mq_os_user}"
     comment:    This user was created by Puppet
