@@ -25,4 +25,5 @@ class ibm_profile::mq_machine::software(
     source_location => $source_location,
     version         => $version,
   }
+  contain ::mq_install::software
 }
