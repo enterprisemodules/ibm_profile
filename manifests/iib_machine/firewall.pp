@@ -27,16 +27,18 @@ class ibm_profile::iib_machine::firewall(
     'RedHat', 'CentOS', 'OracleLinux': {
       case ($::os['release']['major']) {
         '4','5','6': {
-          class {'ibm_profile::iib_machine::firewall::iptables':
+          class {'::ibm_profile::iib_machine::firewall::iptables':
             ports          => $ports,
             manage_service => $manage_service,
           }
+          contain ::ibm_profile::iib_machine::firewall::iptables
         }
         '7': {
-          class {'ibm_profile::iib_machine::firewall::firewalld':
+          class {'::ibm_profile::iib_machine::firewall::firewalld':
             ports          => $ports,
             manage_service => $manage_service,
           }
+          contain ::ibm_profile::iib_machine::firewall::firewalld
         }
         default: { fail 'unsupported OS version when checking firewall service'}
       }
