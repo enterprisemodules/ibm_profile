@@ -10,6 +10,7 @@ The `ibm_profile::mq_machine` class allows you to get a full fledged MQ setup on
 - `groups_and_users`    (Create required groups and users)
 - `firewall`            (Open required firewall rules)
 - `software`            (Install required IBM MQ software)
+- `fixpack`             (Installrequested MQ Fixpack)
 - `manager_setup`       (Configure one or more MQ managers)
 - `autostart`           (Ensure autostart for the MQ managers)
 - `authorization_setup` (Setup MQ authorization)
