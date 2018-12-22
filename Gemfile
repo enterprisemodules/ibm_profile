@@ -29,6 +29,7 @@ group :quality do
   gem 'fasterer'
   gem 'metadata-json-lint'
   gem 'overcommit', :git => 'https://github.com/brigade/overcommit.git'
+  gem "ffi", ">= 1.9.24"
   gem 'puppet-lint'
   gem 'reek'
   gem 'rubocop', :require => false
