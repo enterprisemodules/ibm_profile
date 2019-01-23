@@ -24,7 +24,7 @@
     },
     {
       "name": "enterprisemodules/mq_install",
-      "version_requirement": ">= 1.2.0 < 2.0.0"
+      "version_requirement": ">= 1.3.0 < 2.0.0"
     },
     {
       "name": "enterprisemodules/iib_config",
