@@ -5,3 +5,4 @@
 is_pe: false
 iib_versions: ~
 mq_version: ~
+mq_installed_rpms: []
