@@ -7,7 +7,7 @@ gem 'puppet', puppetversion, :require => false, :groups => [:test]
 group :unit_test do
   gem 'hiera-puppet-helper'
   gem 'rspec-puppet'
-  gem 'rspec-puppet-facts'
+  gem 'rspec-puppet-facts', '1.9.2'
   gem 'rspec-puppet-utils'
 end
 group :acceptance_test do
