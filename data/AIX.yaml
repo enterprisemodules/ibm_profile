@@ -1,0 +1,14 @@
+---
+#------------------------------------------------------------------------------
+#
+# Users to create
+#
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::groups_and_users::users:
+  "%{::ibm_profile::mq_os_user}":
+    uid:        995
+    gid:        "%{::ibm_profile::mq_os_group}"
+    home:       "/var/%{::ibm_profile::mq_os_user}"
+    comment:    This user was created by Puppet
+    managehome: true
+    password:   '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.'

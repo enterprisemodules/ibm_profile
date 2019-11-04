@@ -3,5 +3,7 @@ defaults:  # Used for any hierarchy level that omits these keys.
   datadir: data         # This path is relative to hiera.yaml's directory.
   data_hash: yaml_data  # Use the built-in YAML backend.
 hierarchy:
+  - name: "OS specific defaults"
+    path: "%{facts.kernel}.yaml"
   - name: "ibm_profile class parameter defaults"
     path: "defaults.yaml"
