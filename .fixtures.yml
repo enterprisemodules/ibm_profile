@@ -17,6 +17,6 @@ fixtures:
     augeasproviders_sysctl: herculesteam-augeasproviders_sysctl
     limits:                 saz/limits
     firewall:               puppetlabs-firewall
-    firewalld:              crayfishx-firewalld
+    firewalld:              puppet-firewalld
     sleep:                  fiddyspence-sleep
     dirtree:                AlexCline-dirtree

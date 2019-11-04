@@ -33,7 +33,7 @@ class ibm_profile::iib_machine::firewall(
           }
           contain ::ibm_profile::iib_machine::firewall::iptables
         }
-        '7': {
+        '7','8': {
           class {'::ibm_profile::iib_machine::firewall::firewalld':
             ports          => $ports,
             manage_service => $manage_service,
@@ -43,7 +43,7 @@ class ibm_profile::iib_machine::firewall(
         default: { fail 'unsupported OS version when checking firewall service'}
       }
     }
-    'Solaris':{
+    'Solaris', 'AIX':{
       warning 'No firewall rules added on Solaris.'
     }
     default: {
