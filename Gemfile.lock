@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/enterprisemodules/easy_type_helpers.git
-  revision: ed043b7c492ea0bcb985f308ef41641f182f703d
+  revision: c1e0dd8fc52382bb976aa5f05bb40987b329c918
   specs:
     easy_type_helpers (1.0.0)
 
@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/enterprisemodules/puppet_litmus.git
-  revision: 85841d42b6d0c1adac41a7821e73c650f8b87212
+  revision: e31598854a53cd7f6fb39b6eb01d99ba6460ca73
   specs:
     puppet_litmus (0.9.1)
       bolt (>= 1.13.1, < 1.29.1)
@@ -51,14 +51,14 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.219.0)
-    aws-sdk-core (3.68.0)
+    aws-partitions (1.232.0)
+    aws-sdk-core (3.72.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
-      aws-partitions (~> 1.0)
+      aws-partitions (~> 1, >= 1.228.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-ec2 (1.110.0)
-      aws-sdk-core (~> 3, >= 3.61.1)
+    aws-sdk-ec2 (1.114.0)
+      aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
@@ -67,7 +67,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     bindata (2.4.4)
-    brakeman (4.6.1)
+    brakeman (4.7.1)
     builder (3.2.3)
     bundle-audit (0.1.0)
       bundler-audit
@@ -97,11 +97,11 @@ GEM
     equalizer (0.0.11)
     equatable (0.6.1)
     erubis (2.7.0)
-    excon (0.67.0)
+    excon (0.68.0)
     facter (2.5.6)
     facter (2.5.6-universal-darwin)
       CFPropertyList (~> 2.2)
-    facterdb (0.8.2)
+    facterdb (1.0.0)
       facter
       jgrep
     faraday (0.13.1)
@@ -109,9 +109,9 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     fast_gettext (1.1.2)
-    fasterer (0.7.0)
+    fasterer (0.8.0)
       colorize (~> 0.7)
-      ruby_parser (>= 3.13.0)
+      ruby_parser (>= 3.14.1)
     ffi (1.9.25)
     gettext (3.2.9)
       locale (>= 2.0.5)
@@ -124,22 +124,22 @@ GEM
       ffi (>= 1.0.1)
     gyoku (1.3.1)
       builder (>= 2.1.2)
-    hiera (3.5.0)
+    hiera (3.6.0)
     hiera-eyaml (3.0.0)
       highline (~> 1.6.19)
       optimist
     hiera-puppet-helper (1.0.1)
     highline (1.6.21)
     hitimes (1.3.0)
-    hocon (1.2.5)
+    hocon (1.3.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
     ice_nine (0.11.2)
     iniparse (1.4.4)
-    jaro_winkler (1.5.3)
-    jgrep (1.5.0)
+    jaro_winkler (1.5.4)
+    jgrep (1.5.1)
     jmespath (1.4.0)
     json (2.2.0)
     json-schema (2.8.0)
@@ -152,7 +152,7 @@ GEM
     logging (2.2.2)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
-    mcollective-client (2.12.4)
+    mcollective-client (2.12.5)
       json
       stomp
       systemu
@@ -162,11 +162,11 @@ GEM
       spdx-licenses (~> 1.0)
     mime-types (3.3)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0904)
+    mime-types-data (3.2019.1009)
     minitar (0.6.1)
     mocha (1.3.0)
       metaclass (~> 0.0.1)
-    multi_json (1.13.1)
+    multi_json (1.14.1)
     multipart-post (2.1.1)
     necromancer (0.5.0)
     net-http-persistent (3.1.0)
@@ -181,13 +181,13 @@ GEM
     orchestrator_client (0.4.3)
       faraday
       net-http-persistent
-    overcommit (0.50.0)
+    overcommit (0.51.0)
       childprocess (>= 0.6.3, < 4)
       iniparse (~> 1.4)
-    parallel (1.17.0)
+    parallel (1.18.0)
     parallel_tests (2.29.2)
       parallel
-    parser (2.6.4.1)
+    parser (2.6.5.0)
       ast (~> 2.4.0)
     pastel (0.7.3)
       equatable (~> 0.6)
@@ -235,10 +235,10 @@ GEM
       semantic_puppet (~> 1.0)
     puppet-blacksmith (5.0.0)
       rest-client (~> 2.0)
-    puppet-lint (2.3.6)
+    puppet-lint (2.4.2)
     puppet-resource_api (1.8.7)
       hocon (>= 1.0)
-    puppet-syntax (2.5.0)
+    puppet-syntax (2.6.0)
       rake
     puppet_forge (2.3.0)
       faraday (>= 0.9.0, < 0.14.0)
@@ -252,7 +252,7 @@ GEM
       puppet-lint (~> 2.0)
       puppet-syntax (~> 2.0)
       rspec-puppet (~> 2.0)
-    r10k (3.3.1)
+    r10k (3.3.3)
       colored (= 1.2)
       cri (= 2.15.6)
       gettext-setup (~> 0.24)
@@ -272,22 +272,22 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rspec (3.8.0)
-      rspec-core (~> 3.8.0)
-      rspec-expectations (~> 3.8.0)
-      rspec-mocks (~> 3.8.0)
-    rspec-core (3.8.2)
-      rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.4)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-expectations (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.8.0)
+      rspec-support (~> 3.9.0)
     rspec-its (1.3.0)
       rspec-core (>= 3.0.0)
       rspec-expectations (>= 3.0.0)
-    rspec-mocks (3.8.1)
+    rspec-mocks (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.8.0)
-    rspec-puppet (2.7.5)
+      rspec-support (~> 3.9.0)
+    rspec-puppet (2.7.8)
       rspec
     rspec-puppet-facts (1.9.2)
       facter
@@ -303,18 +303,18 @@ GEM
       rspec-puppet
     rspec-retry (0.6.1)
       rspec-core (> 3.3)
-    rspec-support (3.8.2)
-    rubocop (0.74.0)
+    rspec-support (3.9.0)
+    rubocop (0.76.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.6)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
-    rubocop-performance (1.4.1)
+    rubocop-performance (1.5.0)
       rubocop (>= 0.71.0)
     ruby-progressbar (1.10.1)
-    ruby_parser (3.14.0)
+    ruby_parser (3.14.1)
       sexp_processor (~> 4.9)
     ruby_smb (1.1.0)
       bindata
@@ -331,7 +331,7 @@ GEM
     sexp_processor (4.13.0)
     sfl (2.3)
     spdx-licenses (1.2.0)
-    specinfra (2.81.0)
+    specinfra (2.82.3)
       net-scp
       net-ssh (>= 2.7)
       net-telnet (= 0.1.1)
@@ -381,11 +381,10 @@ GEM
       logging (>= 1.6.1, < 3.0)
       rubyzip (~> 1.1)
       winrm (~> 2.0)
-    wisper (2.0.0)
+    wisper (2.0.1)
 
 PLATFORMS
   ruby
-  x86_64-darwin-17
   x86_64-darwin-18
 
 DEPENDENCIES
@@ -400,7 +399,7 @@ DEPENDENCIES
   mocha (= 1.3.0)
   overcommit
   parallel_tests
-  pdk (> 1.9.0)
+  pdk (> 1.9.0, < 1.14.0)
   puppet (= 6.4.2)
   puppet-blacksmith
   puppet-lint

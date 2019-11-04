@@ -5,7 +5,7 @@ puppetversion = ENV.key?('PUPPET_GEM_VERSION') ? "#{ENV['PUPPET_GEM_VERSION']}" 
 
 gem 'puppet', puppetversion, :require => false, :groups => [:test]
 if Gem::Version.new(puppetversion) > Gem::Version.new('5.0.0')
-  gem 'pdk',  '>1.9.0'
+  gem 'pdk',  '>1.9.0', '<1.14.0'
 end
 
 group :unit_test do
