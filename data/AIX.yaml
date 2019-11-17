@@ -12,3 +12,11 @@ ibm_profile::mq_machine::groups_and_users::users:
     comment:    This user was created by Puppet
     managehome: true
     password:   '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.'
+#
+# stages to skip on AIX for now
+#
+ibm_profile::mq_machine::sysctl:              skip
+ibm_profile::mq_machine::limits:              skip
+ibm_profile::mq_machine::packages:            skip
+ibm_profile::mq_machine::autostart:           skip
+ibm_profile::mq_machine::mq_web:              skip

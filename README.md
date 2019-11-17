@@ -129,8 +129,7 @@ The [`ibm_profile`](https://www.enterprisemodules.com/shop/products/puppet-ibm_i
 - Puppet version 4.10.8 or higher. Can be Puppet Enterprise or Puppet Open Source
 - A valid IBM MQ license and/or IBM Integration Bus License
 - A valid Enterprise Modules license for usage.
-- Runs on most Linux systems.
-- Windows systems are **NOT** supported
+- Runs on most Linux systems, AIX and Solaris
 
 This module uses some other public Puppet forge modules. Check the metadata to ensure you have all dependencies installed.
 
@@ -206,4 +205,4 @@ Here you can find some more information regarding this puppet module:
 
 ## Limitations
 
-This module runs on most Linux versions. It requires a puppet version higher than 4.10.8. The module does **NOT** run on windows systems.
+This module runs on most Linux versions, AIX and Solaris. It requires a puppet version higher than 4.10.8. The module does **NOT** run on windows systems.
