@@ -1,6 +1,6 @@
 {
   "name": "enterprisemodules-ibm_profile",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "enterprisemodules",
   "summary": "Easy customisable profile classes for IBM MQ and IBM IIB  nodes",
   "license": "Apache-2.0",

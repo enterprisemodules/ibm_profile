@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.2.1
+
+**Bugfixes**
+
+- [core] Fix some yaml settings
+
 ## Release 1.2.0
 
 **Features**
