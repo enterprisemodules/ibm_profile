@@ -76,7 +76,7 @@ ibm_profile::mq_machine::firewall::manage_service: true
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::packages::list:
-- unzip
+  - unzip
 #------------------------------------------------------------------------------
 #
 # MQ software
@@ -190,7 +190,7 @@ ibm_profile::iib_machine::groups_and_users::users:
 #
 #------------------------------------------------------------------------------
 ibm_profile::iib_machine::packages::list:
-- unzip
+  - unzip
 #------------------------------------------------------------------------------
 #
 # IIB Firewall rules
@@ -249,8 +249,4 @@ ibm_profile::iib_machine::autostart::version:         "%{ibm_profile::iib_machin
 ibm_profile::iib_machine::autostart::iib_version:     "%{ibm_profile::iib_machine::software::version}"
 ibm_profile::iib_machine::autostart::iib_os_user:     "%{ibm_profile::iib_os_user}"
 ibm_profile::iib_machine::autostart::iib_os_group:    "%{ibm_profile::iib_os_group}"
-#
-# A test value.
-#
-mq_install::software::file_name: 'aa.tar.gz'
 
