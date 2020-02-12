@@ -83,16 +83,23 @@ ibm_profile::mq_machine::packages::list:
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::software::version:            9.0.0.0  
-ibm_profile::mq_machine::software::install_ams:        false
-ibm_profile::mq_machine::software::install_ft:         false
-ibm_profile::mq_machine::software::install_client:     false
-ibm_profile::mq_machine::software::install_explorer:   false
-ibm_profile::mq_machine::software::install_xrserver:   false
-ibm_profile::mq_machine::software::install_samples:    false
-ibm_profile::mq_machine::software::install_sdk:        false
-ibm_profile::mq_machine::software::install_man:        false
-ibm_profile::mq_machine::software::install_gskit:      false
-ibm_profile::mq_machine::software::install_amqp:       false
+ibm_profile::mq_machine::software::install_ams:        false           # Install AMS packages
+ibm_profile::mq_machine::software::install_ft:         false           # Install FT packages
+ibm_profile::mq_machine::software::install_client:     false           # Install Client packages
+ibm_profile::mq_machine::software::install_explorer:   false           # Install Explorer packages
+ibm_profile::mq_machine::software::install_xrserver:   false           # Install XRServer packages
+ibm_profile::mq_machine::software::install_samples:    false           # Install Samples packages
+ibm_profile::mq_machine::software::install_sdk:        false           # Install SDK packages
+ibm_profile::mq_machine::software::install_man:        false           # Install man packages
+ibm_profile::mq_machine::software::install_gskit:      false           # Install GSKit packages
+ibm_profile::mq_machine::software::install_amqp:       false           # Install AMQP packages
+ibm_profile::mq_machine::software::install_web:        false           # REST API and Console
+ibm_profile::mq_machine::software::install_salesforce: false           # IBM MQ Bridge to Salesforce
+ibm_profile::mq_machine::software::install_blockchain: false           # IBM MQ Bridge to blockchain
+ibm_profile::mq_machine::software::install_rdqm:       false           # replicated data queue manage
+ibm_profile::mq_machine::software::install_toolkit:    false           # Install Development Toolkit packages
+
+
 #------------------------------------------------------------------------------
 #
 # MQ managers
