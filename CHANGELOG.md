@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## Release 1.2.2
+
+**Bugfixes**
+
+- [software] export the packge selector from mq_install
+- [quality] Fix mq spec’s on Solaris and MQ
+- [release] Fix double dependency Alexcline-dirtree
+
 ## Release 1.2.1
 
 **Bugfixes**
