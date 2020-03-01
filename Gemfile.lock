@@ -43,16 +43,6 @@ GIT
       pdk (>= 1.10.0, < 2.0.0)
       tty-spinner (>= 0.5.0, < 1.0.0)
 
-GIT
-  remote: https://github.com/mcanevet/rspec-puppet-facts.git
-  revision: e02496555b0a79c0c0434ed99557b7097c5771b4
-  specs:
-    rspec-puppet-facts (2.0.0)
-      facter
-      facterdb (>= 0.5.0)
-      json
-      puppet
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,23 +51,23 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.272.0)
-    aws-sdk-core (3.89.1)
+    aws-partitions (1.278.0)
+    aws-sdk-core (3.90.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-ec2 (1.141.0)
+    aws-sdk-ec2 (1.145.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sigv4 (1.1.0)
+    aws-sigv4 (1.1.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    bindata (2.4.4)
-    brakeman (4.7.2)
+    bindata (2.4.6)
+    brakeman (4.8.0)
     builder (3.2.4)
     bundle-audit (0.1.0)
       bundler-audit
@@ -114,7 +104,7 @@ GEM
     facterdb (1.2.0)
       facter
       jgrep
-    faraday (0.14.0)
+    faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
@@ -147,9 +137,9 @@ GEM
       domain_name (~> 0.5)
     httpclient (2.8.3)
     ice_nine (0.11.2)
-    iniparse (1.4.4)
+    iniparse (1.5.0)
     jaro_winkler (1.5.4)
-    jgrep (1.5.1)
+    jgrep (1.5.2)
     jmespath (1.4.0)
     json (2.3.0)
     json-schema (2.8.0)
@@ -193,7 +183,7 @@ GEM
     parallel (1.19.1)
     parallel_tests (2.31.0)
       parallel
-    parser (2.7.0.2)
+    parser (2.7.0.3)
       ast (~> 2.4.0)
     pastel (0.7.3)
       equatable (~> 0.6)
@@ -242,13 +232,13 @@ GEM
     puppet-blacksmith (5.0.0)
       rest-client (~> 2.0)
     puppet-lint (2.4.2)
-    puppet-resource_api (1.8.7)
+    puppet-resource_api (1.8.12)
       hocon (>= 1.0)
     puppet-syntax (2.6.1)
       puppet (>= 5)
       rake
-    puppet_forge (2.3.2)
-      faraday (>= 0.9.0, < 0.15.0, != 0.13.1)
+    puppet_forge (2.3.3)
+      faraday (>= 0.9.0, < 0.18.0, != 0.13.1)
       faraday_middleware (>= 0.9.0, < 0.14.0)
       gettext-setup (~> 0.11)
       minitar
@@ -279,6 +269,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -296,6 +287,11 @@ GEM
       rspec-support (~> 3.9.0)
     rspec-puppet (2.7.8)
       rspec
+    rspec-puppet-facts (1.10.0)
+      facter
+      facterdb (>= 0.5.0)
+      json
+      puppet
     rspec-puppet-utils (3.4.0)
       mocha
       puppet
@@ -305,11 +301,12 @@ GEM
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
     rspec-support (3.9.2)
-    rubocop (0.79.0)
+    rubocop (0.80.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.7.0.1)
       rainbow (>= 2.2.2, < 4.0)
+      rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.5.2)
@@ -332,7 +329,7 @@ GEM
     sexp_processor (4.14.1)
     sfl (2.3)
     spdx-licenses (1.2.0)
-    specinfra (2.82.9)
+    specinfra (2.82.10)
       net-scp
       net-ssh (>= 2.7)
       net-telnet (= 0.1.1)
@@ -384,7 +381,7 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-17
+  x86_64-darwin-18
 
 DEPENDENCIES
   bolt!
@@ -407,7 +404,7 @@ DEPENDENCIES
   rake
   reek
   rspec-puppet
-  rspec-puppet-facts!
+  rspec-puppet-facts
   rspec-puppet-utils
   rspec-retry
   rubocop
@@ -415,4 +412,4 @@ DEPENDENCIES
   serverspec
 
 BUNDLED WITH
-   1.16.2
+   2.0.2
