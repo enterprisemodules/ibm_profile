@@ -1,6 +1,4 @@
-# Include the defaults module jobs for gitlab CI definitions
-#
+---
 include:
-  - project: 'enterprisemodules/gitlab_ci'
-    file: 'module-defaults.yml'
-
+- project: enterprisemodules/gitlab_ci
+  file: module-defaults.yml
