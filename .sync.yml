@@ -60,3 +60,40 @@
       description: Run RSpec tests
       targets:
       - 'spec'
+
+.pdkignore:
+  required:
+    - '.overcommit.yml'
+    - '.pdkignore'
+    - '.pmtignore'
+    - '.project'
+    - '.puppet-lint.rc'
+    - '.sync.yml'
+    - 'documentation\'
+.travis.yml:
+  unmanaged: true
+.vscode/extensions.json:
+  unmanaged: true
+.yardopts:
+  unmanaged: true
+appveyor.yml:
+  unmanaged: true
+data/common.yaml:
+  unmanaged: true
+Rakefile:
+  unmanaged: true
+spec/spec_helper.rb:
+  unmanaged: true
+spec/default_facts.yml:
+  iib_versions: ~
+  mq_version: ~
+  mq_installed_components: []
+.rubocop.yml:
+  unmanaged: true
+
+.puppet-lint.rc:
+  required:
+    - '--fail-on-warnings'
+    - '--no-140chars-check'
+    - '--no-quoted_booleans'
+    - '--no-variable_is_lowercase'

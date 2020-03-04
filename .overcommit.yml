@@ -20,7 +20,7 @@ PreCommit:
   PuppetLint:
     flags:
     - "--relative"
-    enabled: true
+    enabled: false
   YamlSyntax:
     enabled: true
   BundleCheck:
