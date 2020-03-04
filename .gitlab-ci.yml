@@ -2,3 +2,28 @@
 include:
 - project: enterprisemodules/gitlab_ci
   file: module-defaults.yml
+MQ Acc test:
+  extends: .puppet_acceptance_test
+  variables:
+    type: mq_machine
+  only:
+    changes:
+      - "lib/puppet/**/*.rb"
+      - "templates/**/*.*"
+      - "manifests/mq_machine.pp"
+      - "manifests/mq_machine/**/*.pp"
+      - "specs/support/acceptance/**/*.rb"
+      - "specs/acceptance/mq_machine_spec.rb"
+IIB Acc test:
+  extends: .puppet_acceptance_test
+  variables:
+    type: iib_machine
+  only:
+    changes:
+      - "lib/puppet/**/*.rb"
+      - "templates/**/*.*"
+      - "manifests/iib_machine.pp"
+      - "manifests/iib_machine/**/*.pp"
+      - "specs/support/acceptance/**/*.rb"
+      - "specs/acceptance/iib_machine_spec.rb"
+

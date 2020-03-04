@@ -2,6 +2,13 @@ require_relative '../spec_helper_acceptance'
 
 describe 'ibm_profile::iib_machine' do
 
+  before do
+    manifest = <<-MANIFEST
+      package {'sudo': ensure => present}
+    MANIFEST
+    apply_manifest(manifest)
+  end
+
   manifest = <<-MANIFEST
     class {ibm_profile:
       source_location => '/software',

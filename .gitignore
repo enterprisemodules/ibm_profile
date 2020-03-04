@@ -12,3 +12,4 @@ spec/software/
 /tests/.byebug_history
 convert_report.txt
 update_report.txt
+/inventory.yaml
