@@ -35,9 +35,9 @@ task :litmus do
   # Project root
   proj_root = File.expand_path(File.join(File.dirname(__FILE__)))
   if `hostname`.include?('runner')
-    Rake::Task['litmus:provision'].invoke('docker_exp', 'enterprisemodules/acc_base', ' -h oradb -v /software:/software')
+    Rake::Task['litmus:provision'].invoke('docker_exp', 'enterprisemodules/acc_base', ' -h mq_machine -v /software:/software')
   else
-    Rake::Task['litmus:provision'].invoke('docker_exp', 'enterprisemodules/acc_base', '-h oradb -v $SOFTWARE_DIR:/software')
+    Rake::Task['litmus:provision'].invoke('docker_exp', 'enterprisemodules/acc_base', '-h mq_machine -v $SOFTWARE_DIR:/software')
   end
   node_name = YAML.load_file("#{proj_root}/inventory.yaml").dig('groups',0,'nodes',0, 'name')
   ENV['TARGET_HOST'] = node_name
