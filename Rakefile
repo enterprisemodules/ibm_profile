@@ -32,32 +32,10 @@ end
 
 desc "Run Litmus setup"
 task :litmus do
-  # Project root
-  proj_root = File.expand_path(File.join(File.dirname(__FILE__)))
-  if `hostname`.include?('runner')
-    Rake::Task['litmus:provision'].invoke('docker_exp', 'enterprisemodules/acc_base', ' -h mq_machine -v /software:/software')
-  else
-    Rake::Task['litmus:provision'].invoke('docker_exp', 'enterprisemodules/acc_base', '-h mq_machine -v $SOFTWARE_DIR:/software')
-  end
-  node_name = YAML.load_file("#{proj_root}/inventory.yaml").dig('groups',0,'nodes',0, 'name')
-  ENV['TARGET_HOST'] = node_name
-  puppet_version = ENV['PUPPET_VERSION'] || 'latest'
-  Rake::Task['litmus:install_agent'].invoke(puppet_version)
-  Rake::Task['litmus:install_module'].invoke
-  Rake::Task['litmus:prepare'].invoke(node_name)
-
+  docker_image =  'enterprisemodules/acc_base'
+  node_name = 'mq_machine'
+  Rake::Task['litmus:litmus_setup'].invoke(docker_image, node_name)
 end
-
-namespace :litmus do
-  desc "Prepare the system for the tests"
-  task :prepare, [:node_name] do |task, args|
-    node_name = args['node_name']
-    include BoltSpec::Run
-    extend PuppetLitmus::Serverspec
-    # Nothing for now
-  end
-end
-
 
 if defined?(PuppetLint)
   PuppetLint.configuration.send("disable_140chars")
