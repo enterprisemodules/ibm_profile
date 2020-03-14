@@ -41,7 +41,8 @@ task :litmus do
   end
   node_name = YAML.load_file("#{proj_root}/inventory.yaml").dig('groups',0,'nodes',0, 'name')
   ENV['TARGET_HOST'] = node_name
-  Rake::Task['litmus:install_agent'].invoke
+  puppet_version = ENV['PUPPET_VERSION'] || 'latest'
+  Rake::Task['litmus:install_agent'].invoke(puppet_version)
   Rake::Task['litmus:install_module'].invoke
   Rake::Task['litmus:prepare'].invoke(node_name)
 
