@@ -18,7 +18,7 @@ class ibm_profile::mq_machine::autostart(
   }
   $list.keys.each |$qm| {
     mq_install::autostart {$qm:
-      ensure => 'present'
+      ensure => 'present',
     }
   }
 }

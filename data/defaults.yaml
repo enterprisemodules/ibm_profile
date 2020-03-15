@@ -1,6 +1,8 @@
 ---
 ibm_profile::mq_os_group:        mqm
+ibm_profile::mq_gid:             1001
 ibm_profile::mq_os_user:         mqm
+ibm_profile::mq_uid:             995
 ibm_profile::iib_os_group:       mqbrkrs 
 ibm_profile::iib_os_user:        iibadmin
 ibm_profile::source_location:    puppet:///modules/software
@@ -47,7 +49,7 @@ ibm_profile::mq_machine::limits::list:
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::groups_and_users::groups:
   "%{::ibm_profile::mq_os_group}": 
-    gid:  1001    
+    gid:   "%{lookup('ibm_profile::mq_gid')}"
 #------------------------------------------------------------------------------
 #
 # Users to create
@@ -55,8 +57,8 @@ ibm_profile::mq_machine::groups_and_users::groups:
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::groups_and_users::users:
   "%{::ibm_profile::mq_os_user}":
-    uid:        995
-    gid:        "%{::ibm_profile::mq_os_group}"
+    uid:        "%{lookup('ibm_profile::mq_uid')}"
+    gid:        "%{lookup('ibm_profile::mq_gid')}"
     home:       "/var/%{::ibm_profile::mq_os_user}"
     comment:    This user was created by Puppet
     managehome: true
