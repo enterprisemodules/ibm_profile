@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.2.3
+
+**Bugfixes**
+
+- [mq_machine] Fix RHEL 8 support
+- [core] Convert module to pdk module
 
 ## Release 1.2.2
 
 **Bugfixes**
 
-- [software] export the packge selector from mq_install
+- [software] export the package selector from mq_install
 - [quality] Fix mq spec’s on Solaris and MQ
 - [release] Fix double dependency Alexcline-dirtree
 
