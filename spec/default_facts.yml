@@ -3,6 +3,9 @@ ipaddress: 172.16.254.254
 ipaddress6: FE80:0000:0000:0000:AAAA:AAAA:AAAA
 is_pe: false
 macaddress: AA:AA:AA:AA:AA:AA
-iib_versions: 
-mq_version: 
+iib_versions:
+mq_version:
 mq_installed_components: []
+dmi:
+  product:
+    uuid: 2d931510-d99f-494a-8c67-87feb05e1594

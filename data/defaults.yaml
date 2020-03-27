@@ -3,7 +3,7 @@ ibm_profile::mq_os_group:        mqm
 ibm_profile::mq_gid:             1001
 ibm_profile::mq_os_user:         mqm
 ibm_profile::mq_uid:             995
-ibm_profile::iib_os_group:       mqbrkrs 
+ibm_profile::iib_os_group:       mqbrkrs
 ibm_profile::iib_os_user:        iibadmin
 ibm_profile::source_location:    puppet:///modules/software
 ibm_profile::mq_managers:        {}
@@ -14,21 +14,21 @@ ibm_profile::iib_brokers:        {}
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::sysctl::list:
-  'kernel.shmmax':                 
+  'kernel.shmmax':
     value: 268435456
-  'kernel.shmall':                 
+  'kernel.shmall':
     value: 2097152
-  'kernel.shmmni':                 
+  'kernel.shmmni':
     value: 4096
-  'vm.overcommit_memory':                 
+  'vm.overcommit_memory':
     value: 2
-  'vm.overcommit_ratio':                 
+  'vm.overcommit_ratio':
     value: 80
-  'kernel.threads-max':                 
+  'kernel.threads-max':
     value: 32768
-  'kernel.pid_max':                 
+  'kernel.pid_max':
     value: 32768
-  'fs.file-max':                 
+  'fs.file-max':
     value: 524288
 #------------------------------------------------------------------------------
 #
@@ -48,7 +48,7 @@ ibm_profile::mq_machine::limits::list:
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::groups_and_users::groups:
-  "%{::ibm_profile::mq_os_group}": 
+  "%{::ibm_profile::mq_os_group}":
     gid:   "%{lookup('ibm_profile::mq_gid')}"
 #------------------------------------------------------------------------------
 #
@@ -62,7 +62,7 @@ ibm_profile::mq_machine::groups_and_users::users:
     home:       "/var/%{::ibm_profile::mq_os_user}"
     comment:    This user was created by Puppet
     managehome: true
-    password:   '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.'
+    password:   "%{alias('ibm_profile::mq_machine::os_user_password')}"
     shell:      '/bin/bash'
 #------------------------------------------------------------------------------
 #
@@ -84,7 +84,7 @@ ibm_profile::mq_machine::packages::list:
 # MQ software
 #
 #------------------------------------------------------------------------------
-ibm_profile::mq_machine::software::version:            9.0.0.0  
+ibm_profile::mq_machine::software::version:            9.0.0.0
 ibm_profile::mq_machine::software::install_ams:        false           # Install AMS packages
 ibm_profile::mq_machine::software::install_ft:         false           # Install FT packages
 ibm_profile::mq_machine::software::install_client:     false           # Install Client packages
@@ -175,9 +175,9 @@ ibm_profile::iib_machine::limits::list: {}
 #
 #------------------------------------------------------------------------------
 ibm_profile::iib_machine::groups_and_users::groups:
-  "%{::ibm_profile::mq_os_group}": 
+  "%{::ibm_profile::mq_os_group}":
     gid:   "%{lookup('ibm_profile::mq_gid')}"
-  mqbrkrs: 
+  mqbrkrs:
     gid:  1005
 #------------------------------------------------------------------------------
 #
@@ -191,7 +191,7 @@ ibm_profile::iib_machine::groups_and_users::users:
     groups:     ["%{ibm_profile::mq_os_group}", "%{ibm_profile::iib_os_group}"]
     comment:    This user was created by Puppet
     managehome: true
-    password:   '$1$DSJ51vh6$4XzzwyIOk6Bi/54kglGk3.'
+    password:   "%{alias('ibm_profile::iib_machine::os_user_password')}"
     shell:      '/bin/bash'
 #------------------------------------------------------------------------------
 #
@@ -206,7 +206,7 @@ ibm_profile::iib_machine::packages::list:
 #
 #------------------------------------------------------------------------------
 # Each connector has its own assigned port, which is allocated from a range of numbers, as required.
-# The default range for the HTTPConnector is 7800 - 7842; 
+# The default range for the HTTPConnector is 7800 - 7842;
 # the default range for the HTTPSConnector is 7843 - 7884. The first integration server to start an embedded
 #  listener is allocated port 7800, the second is allocated 7801, and so on."
 ibm_profile::iib_machine::firewall::ports:
@@ -259,3 +259,6 @@ ibm_profile::iib_machine::autostart::iib_version:     "%{ibm_profile::iib_machin
 ibm_profile::iib_machine::autostart::iib_os_user:     "%{ibm_profile::iib_os_user}"
 ibm_profile::iib_machine::autostart::iib_os_group:    "%{ibm_profile::iib_os_group}"
 
+lookup_options:
+  'ibm_profile::.*::os_user_password':
+    convert_to: 'Sensitive'
