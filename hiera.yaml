@@ -11,3 +11,10 @@ hierarchy:
 
   - name: ibm_profile class parameter defaults
     path: "defaults.yaml"
+
+  - name: "Generated password"
+    lookup_key: 'easy_type::generated_passwords'
+    options:
+      use_for:
+        'ibm_profile::iib_machine::os_user_password':     'hash(aA1#.12,sha-512)'
+        'ibm_profile::mq_machine::os_user_password':      'hash(aA1#.12,sha-512)'

@@ -10,6 +10,7 @@ fixtures:
     provision:    'git://github.com/enterprisemodules/provision.git'
     easy_type:    'https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/enterprisemodules/easy_type_src.git'
     iib_install:  'https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/enterprisemodules/iib_install.git'
+
     iib_config:   'https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/enterprisemodules/iib_config.git'
     mq_install:   'https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/enterprisemodules/mq_install.git'
     mq_config:    'https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/enterprisemodules/mq_config.git'
