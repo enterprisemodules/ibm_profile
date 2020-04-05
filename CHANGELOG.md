@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.2.4
+
+**Bugfixes**
+
+- [iib_machine] Fix used group id. Use same as for MQ
+
 ## Release 1.2.3
 
 **Bugfixes**
