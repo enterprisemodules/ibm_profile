@@ -175,8 +175,8 @@ ibm_profile::iib_machine::limits::list: {}
 #
 #------------------------------------------------------------------------------
 ibm_profile::iib_machine::groups_and_users::groups:
-  "%{ibm_profile::mq_os_group}": 
-    gid:  1001
+  "%{::ibm_profile::mq_os_group}": 
+    gid:   "%{lookup('ibm_profile::mq_gid')}"
   mqbrkrs: 
     gid:  1005
 #------------------------------------------------------------------------------
