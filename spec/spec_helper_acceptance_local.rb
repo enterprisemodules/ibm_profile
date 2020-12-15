@@ -7,7 +7,6 @@ RSpec.configure do |c|
   c.order     = :defined
   c.include Helpers
   c.include BoltSpec::Run
-  c.extend  PuppetLitmus::Serverspec
 end
 
 def hiera_values_on_sut( values)
