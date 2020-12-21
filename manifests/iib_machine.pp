@@ -346,7 +346,7 @@ class ibm_profile::iib_machine(
   Optional[String] $after_deployments = undef,
   Optional[String] $after_autostart = undef,
 ) inherits ibm_profile {
-  easy_type::staged_contain([
+  easy_type::ordered_steps([
     'ibm_profile::iib_machine::sysctl',
     'ibm_profile::iib_machine::limits',
     'ibm_profile::iib_machine::groups_and_users',
