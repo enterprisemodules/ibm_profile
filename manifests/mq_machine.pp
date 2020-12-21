@@ -380,7 +380,7 @@ class ibm_profile::mq_machine(
   Optional[String] $after_messaging_setup = undef,
   Optional[String] $after_mq_web = undef,
 ) inherits ibm_profile {
-  easy_type::staged_contain([
+  easy_type::ordered_steps([
     'ibm_profile::mq_machine::sysctl',
     'ibm_profile::mq_machine::limits',
     'ibm_profile::mq_machine::groups_and_users',
