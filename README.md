@@ -74,7 +74,7 @@ This mechanism can be used for all named stages and makes it easy to move from a
 
 ### The `ibm_profile::iib_machine` class
 
-Besides setting up MQ, the `ibm_profile` module also has support for setting up IBM Integration Bus (IIB). The `ibm_profile::iib_machine` class allows you to get a full fledged IIB setup on your system in a minute. It contains all default settings needed, but you can also tweak it in a lot of ways. It contains the following stages (These are not puppet stages):
+Besides setting up MQ, the `ibm_profile` module also has support for setting up IBM Integration Bus (IIB). The `ibm_profile::iib_machine` class allows you to get a full -fledged IIB setup on your system in a minute. It contains all default settings needed, but you can also tweak it in a lot of ways. It contains the following stages (These are not puppet stages):
 
 - [`sysctl`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/sysctl.html)                   (Set all required sysctl parameters)
 - [`limits`](http://www.enterprisemodules.com/docs/ibm_profile/iib_machine/limits.html)                   (Set all required OS limits)
@@ -170,7 +170,7 @@ ibm_profile::mq_managers:
     ensure: present
 ```
 
-Run Puppet and you have a Server with MQ installed a MQ Queue Manager named MQ01
+Run Puppet and you have a Server with MQ installed an MQ Queue Manager named MQ01
 Check the documentation for all the settings you can manage. 
 
 ### `ibm_profile::iib_machine`
