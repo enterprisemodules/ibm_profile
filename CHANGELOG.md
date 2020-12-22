@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.3.0
+
+**Features**
+
+- [release] Add support for puppet 7 in the metadata
+- [core] added sensitive groups and users password + password generator
+
+**Bugfixes**
+
+- [mq_machine] Fix deprecation warnings
+- [iib_machine] Fix deprecation warnings
+
 ## Release 1.2.4
 
 **Bugfixes**
