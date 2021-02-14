@@ -45,7 +45,11 @@ group :release, :acceptance_test do
 end
 group :unit_test, :acceptance_test, :publish do
   gem 'easy_type_helpers', git: 'https://github.com/enterprisemodules/easy_type_helpers.git'
-  gem 'puppetlabs_spec_helper'
+  if Gem::Version.new(RUBY_VERSION) > Gem::Version.new('2.2.0')
+    gem 'puppetlabs_spec_helper',  '< 3.0.0'
+  else
+    gem 'puppetlabs_spec_helper'
+  end
 end
 group :quality do
   gem 'fasterer'
