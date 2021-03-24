@@ -14,42 +14,42 @@
 #  
 #  When a lot of the objects  have the same defaults, use the `defaults` parameter to specify a Hash of defaults.
 #
-# @param queue_list
+# @param [Hash] queue_list
 #    A Hash of MQ queues.
 #    Use use a `yaml` representation of [mq_queue](/docs/mq_config/mq_queue.html) to specify all properties and params of the MQ queues you need. 
 #    The default is: `{}`
 #
-# @param queue_defaults
+# @param [Hash] queue_defaults
 #    The defaults to use for all MQ queues.
 #    Use use a `yaml` representation of [mq_queue](/docs/mq_config/mq_queue.html) to specify all properties and params of the MQ queues you need. 
 #    The default is: `{}`
 #
-# @param topic_list
+# @param [Hash] topic_list
 #    A Hash of MQ topics.
 #    Use use a `yaml` representation of [mq_topic](/docs/mq_config/mq_topic.html) to specify all properties and params of the MQ topics you need. 
 #    The default is: `{}`
 #
-# @param topic_defaults
+# @param [Hash] topic_defaults
 #    The defaults to use for all MQ topics.
 #    Use use a `yaml` representation of [mq_topic](/docs/mq_config/mq_topic.html) to specify all properties and params of the MQ topics you need. 
 #    The default is: `{}`
 #
-# @param listener_list
+# @param [Hash] listener_list
 #    A Hash of MQ listeners.
 #    Use use a `yaml` representation of [mq_listener](/docs/mq_config/mq_listener.html) to specify all properties and params of the MQ listeners you need. 
 #    The default is: `{}`
 #
-# @param listener_defaults
+# @param [Hash] listener_defaults
 #    The defaults to use for all MQ listeners.
 #    Use use a `yaml` representation of [mq_listener](/docs/mq_config/mq_listener.html) to specify all properties and params of the MQ listeners you need. 
 #    The default is: `{}`
 #
-# @param channel_list
+# @param [Hash] channel_list
 #    A Hash of MQ channels.
 #    Use use a `yaml` representation of [mq_channel](/docs/mq_config/mq_channel.html) to specify all properties and params of the MQ channels you need. 
 #    The default is: `{}`
 #
-# @param channel_defaults
+# @param [Hash] channel_defaults
 #    The defaults to use for all MQ channels.
 #    Use use a `yaml` representation of [mq_channel](/docs/mq_config/mq_channel.html) to specify all properties and params of the MQ channels you need. 
 #    The default is: `{}`

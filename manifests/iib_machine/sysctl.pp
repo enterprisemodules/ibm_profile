@@ -7,7 +7,7 @@
 # 
 # When these customizations aren't enough, you can replace the class with your own class. See [ibm_profile::iib_machine](./iib_machine.html) for an explanation on how to do this.
 #
-# @param list
+# @param [Hash] list
 #    The list of sysctl parameters to ensure for IIB.
 #    The default is: `{}`
 #

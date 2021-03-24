@@ -7,7 +7,7 @@
 # 
 # When these customizations aren't enough, you can replace the class with your own class. See [ibm_profile::iib_machine](./iib_machine.html) for an explanation on how to do this.
 #
-# @param users
+# @param [Hash] users
 #    The list of OS users to ensure.
 #    The default is:
 #    ```yaml
@@ -21,7 +21,7 @@
 #        shell:      '/bin/bash'
 #    ```
 #
-# @param groups
+# @param [Hash] groups
 #    The list of OS groups to add to the system.
 #    The default is:
 #    ```yaml

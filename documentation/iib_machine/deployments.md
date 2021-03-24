@@ -12,6 +12,11 @@ This class allows you to setup your IIB deployments. Use use a `yaml` representa
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -30,6 +35,8 @@ a Hash of default properties added to all specfied deployments. Use [iib_deploym
 
 The default value is: `{}`
 
+Type: `Hash`
+
 
 [Back to overview of iib_machine::deployments](#attributes)
 
@@ -38,6 +45,8 @@ The default value is: `{}`
 a Hash of deployments. Use [iib_deployment](/docs/iib_config/iib_deployment.html) to specify the defaults.
 
 The default value is: `{}`
+
+Type: `Hash`
 
 
 [Back to overview of iib_machine::deployments](#attributes)

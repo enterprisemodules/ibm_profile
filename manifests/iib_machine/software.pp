@@ -5,17 +5,17 @@
 # @summary This class allows you to setup your IIB software on your system.
 #
 #
-# @param version
+# @param [Pattern[/\d+\.\d+\.\d+\.\d/]] version
 #    The version of IIB to install.
 #
-# @param source_location
+# @param [String] source_location
 #    The location where the IIB installation can find the siftware distribution.
 #    This can be a:
 #    - directory
 #    - http url
 #    - puppet url
 #
-# @param iib_os_user
+# @param [String] iib_os_user
 #    The OS user to use for the installation of the IIB software.
 #    The default is: `iibadmin`
 #

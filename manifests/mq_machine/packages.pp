@@ -7,7 +7,7 @@
 # 
 # When these customizations aren't enough, you can replace the class with your own class. See [ibm_profile::mq_machine](./mq_machine.html) for an explanation on how to do this.
 #
-# @param list
+# @param [Array[String[1]]] list
 #    The list of packages you want to install.
 #    The default value is: `{}`
 #

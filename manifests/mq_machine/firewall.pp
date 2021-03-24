@@ -7,10 +7,10 @@
 # 
 # When these customizations aren't enough, you can replace the class with your own class. See [ibm_profile::mq_machine](./mq_machine.html) for an explanation on how to do this.
 #
-# @param ports
+# @param [Array[Integer]] ports
 #    The ports to open in the firewall.
 #
-# @param manage_service
+# @param [Boolean] manage_service
 #    Specifies if you want to manege the `firewalld` or `iptables` service.
 #
 #--++--

@@ -12,6 +12,11 @@ This class enables autostart for the specfied brokers. This means a `systemctl` 
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -29,12 +34,16 @@ Attribute Name                                       | Short Description        
 ### list<a name='iib_machine::autostart_list'>
 
 A list of brokers. The default value is fetched from the hiera key `ibm_profile::iib_brokers`. To fill this list use a `yaml` representation of [iib_brokers](/docs/iib_config/iib_broker.html)
+Type: `Hash`
+
 
 [Back to overview of iib_machine::autostart](#attributes)
 
 ### version<a name='iib_machine::autostart_version'>
 
 The IIB version to use when autostarting the brokers. The default is value is fetched from the hiera key `ibm_profile::iib_machine::software::version`.
+Type: `String`
+
 
 [Back to overview of iib_machine::autostart](#attributes)
 
@@ -43,6 +52,8 @@ The IIB version to use when autostarting the brokers. The default is value is fe
 The OS user used for autostarting the brokers.
 
 The default is `iibadmin`
+Type: `String`
+
 
 [Back to overview of iib_machine::autostart](#attributes)
 
@@ -51,5 +62,7 @@ The default is `iibadmin`
 The OS group used for autostarting the brokers.
 
 The default is `mqbrkrs`
+Type: `String`
+
 
 [Back to overview of iib_machine::autostart](#attributes)

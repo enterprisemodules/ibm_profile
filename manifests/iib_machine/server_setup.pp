@@ -7,17 +7,17 @@
 # 
 # Besides the initial server configuration, you can also configure additional properties. Read about [iib_properties here](/docs/iib_config/iib_property.html).
 #
-# @param defaults
+# @param [Hash] defaults
 #    a Hash of default properties added to all specfied Brokers.
 #    Use [iib_server](/docs/iib_config/iib_server.html) to specify the defaults.
 #    The default value is: `{}`
 #
-# @param list
+# @param [Hash] list
 #    The list of servers to configure.
 #    Use use a `yaml` representation of [iib_server](/docs/iib_config/iib_server.html) to specify all properties and params of the brokers you need. 
 #    The default value is: `{}`
 #
-# @param properties
+# @param [Hash] properties
 #    The list of IIB server properties.
 #    Read about [iib_properties here](/docs/iib_config/iib_property.html). 
 #    The default value is: `{}`

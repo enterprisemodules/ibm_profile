@@ -13,6 +13,11 @@ This class allows you to setup your IIB software on your system.
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -31,6 +36,8 @@ Attribute Name                                            | Short Description   
 The version of IIB to install.
 
 
+Type: `Pattern[/\d+\.\d+\.\d+\.\d/]`
+
 
 [Back to overview of iib_machine::software](#attributes)
 
@@ -42,6 +49,8 @@ The location where the IIB installation can find the siftware distribution. This
 - http url
 - puppet url
 
+Type: `String`
+
 
 [Back to overview of iib_machine::software](#attributes)
 
@@ -50,5 +59,7 @@ The location where the IIB installation can find the siftware distribution. This
 The OS user to use for the installation of the IIB software.
 
 The default is: `iibadmin`
+Type: `String`
+
 
 [Back to overview of iib_machine::software](#attributes)

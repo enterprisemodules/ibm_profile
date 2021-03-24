@@ -15,6 +15,11 @@ Besides the initial server configuration, you can also configure additional prop
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -34,6 +39,8 @@ a Hash of default properties added to all specfied Brokers. Use [iib_server](/do
 
 The default value is: `{}`
 
+Type: `Hash`
+
 
 [Back to overview of iib_machine::server_setup](#attributes)
 
@@ -43,6 +50,8 @@ The list of servers to configure. Use use a `yaml` representation of [iib_server
 
 The default value is: `{}`
 
+Type: `Hash`
+
 
 [Back to overview of iib_machine::server_setup](#attributes)
 
@@ -51,6 +60,8 @@ The default value is: `{}`
 The list of IIB server properties. Read about [iib_properties here](/docs/iib_config/iib_property.html). 
 
 The default value is: `{}`
+
+Type: `Hash`
 
 
 [Back to overview of iib_machine::server_setup](#attributes)

@@ -5,12 +5,12 @@
 # @summary 
 # This class allows you to setup your IIB deployments. Use use a `yaml` representation of [iib_deployment](/docs/iib_config/iib_deployment.html) to specify all properties and params of the deployment you need. When a lot of the deployments have the same defaults, use the `defaults` parameter to specify a Hash of defaults.
 #
-# @param defaults
+# @param [Hash] defaults
 #    a Hash of default properties added to all specfied deployments.
 #    Use [iib_deployment](/docs/iib_config/iib_deployment.html) to specify the defaults.
 #    The default value is: `{}`
 #
-# @param list
+# @param [Hash] list
 #    a Hash of deployments.
 #    Use [iib_deployment](/docs/iib_config/iib_deployment.html) to specify the defaults.
 #    The default value is: `{}`

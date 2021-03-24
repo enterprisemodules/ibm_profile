@@ -16,6 +16,11 @@ When these customizations aren't enough, you can replace the class with your own
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -32,5 +37,7 @@ Attribute Name                      | Short Description                         
 The list of packages you want to install.
 
 The default value is: `{}`
+Type: `Array[String[1]]`
+
 
 [Back to overview of iib_machine::packages](#attributes)

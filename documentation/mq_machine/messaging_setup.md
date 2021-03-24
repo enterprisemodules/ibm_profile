@@ -21,6 +21,11 @@ This class allows you to setup your MQ messaging setup. It has support for:
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -46,6 +51,8 @@ A Hash of MQ queues.
 Use use a `yaml` representation of [mq_queue](/docs/mq_config/mq_queue.html) to specify all properties and params of the MQ queues you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)
 
@@ -56,6 +63,8 @@ The defaults to use for all MQ queues.
 Use use a `yaml` representation of [mq_queue](/docs/mq_config/mq_queue.html) to specify all properties and params of the MQ queues you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)
 
@@ -66,6 +75,8 @@ A Hash of MQ topics.
 Use use a `yaml` representation of [mq_topic](/docs/mq_config/mq_topic.html) to specify all properties and params of the MQ topics you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)
 
@@ -76,6 +87,8 @@ The defaults to use for all MQ topics.
 Use use a `yaml` representation of [mq_topic](/docs/mq_config/mq_topic.html) to specify all properties and params of the MQ topics you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)
 
@@ -86,6 +99,8 @@ A Hash of MQ listeners.
 Use use a `yaml` representation of [mq_listener](/docs/mq_config/mq_listener.html) to specify all properties and params of the MQ listeners you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)
 
@@ -96,6 +111,8 @@ The defaults to use for all MQ listeners.
 Use use a `yaml` representation of [mq_listener](/docs/mq_config/mq_listener.html) to specify all properties and params of the MQ listeners you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)
 
@@ -106,6 +123,8 @@ A Hash of MQ channels.
 Use use a `yaml` representation of [mq_channel](/docs/mq_config/mq_channel.html) to specify all properties and params of the MQ channels you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)
 
@@ -116,5 +135,7 @@ The defaults to use for all MQ channels.
 Use use a `yaml` representation of [mq_channel](/docs/mq_config/mq_channel.html) to specify all properties and params of the MQ channels you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::messaging_setup](#attributes)

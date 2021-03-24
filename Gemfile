@@ -51,6 +51,7 @@ group :unit_test, :acceptance_test, :publish do
     gem 'puppetlabs_spec_helper'
   end
 end
+gem 'byebug'
 group :quality do
   gem 'fasterer'
   gem 'bundle-audit'

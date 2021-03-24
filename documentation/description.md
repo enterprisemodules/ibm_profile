@@ -5,6 +5,10 @@ layout: documentation
 sidebar: ibm_profile_sidebar
 toc: false
 ---
+## Try yourself
+
+You don't want to read about it, but really want to try it? You can! You can explore our Puppet modules for Oracle by checking out our [playgrounds](https://www.enterprisemodules.com//playgrounds#mq). Here we guide you around in some of the functionality of our IBM messaging modules.
+
 ## Overview
 
 The `ibm_profile` contains multiple Puppet classes to easily create IBM MQ and IBM Integration Bus (IIB) installtions with Puppet. These classes are an easy way to get started, but also allow you extend and replace parts of the standard implementations with ease.
@@ -100,5 +104,10 @@ This mechanism can be used for all named stages and makes it easy to move from a
 
 
 
+
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
 
 

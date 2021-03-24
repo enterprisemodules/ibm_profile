@@ -13,27 +13,27 @@
 #  
 #  When a lot of the objects  have the same defaults, use the `defaults` parameter to specify a Hash of defaults.
 #
-# @param authentication_defaults
+# @param [Hash] authentication_defaults
 #    The defaults to use for all MQ authentication_info records.
 #    Use use a `yaml` representation of [mq_authentication_info](/docs/mq_config/mq_authentication_info.html) to specify all properties and params of the MQ authentication_info records you need. 
 #    The default is: `{}`
 #
-# @param authentication_info
+# @param [Hash] authentication_info
 #    A Hash of MQ authentication_info records.
 #    Use use a `yaml` representation of [mq_authentication_info](/docs/mq_config/mq_authentication_info.html) to specify all properties and params of the MQ authentication_info records you need. 
 #    The default is: `{}`
 #
-# @param authorization_defaults
+# @param [Hash] authorization_defaults
 #    The defaults to use for all MQ authorization records.
 #    Use use a `yaml` representation of [mq_authorization](/docs/mq_config/mq_authorization.html) to specify all properties and params of the MQ authorization records you need. 
 #    The default is: `{}`
 #
-# @param authorization_list
+# @param [Hash] authorization_list
 #    A Hash of MQ authorization records.
 #    Use use a `yaml` representation of [mq_authorization](/docs/mq_config/mq_authorization.html) to specify all properties and params of the MQ authorization records you need. 
 #    The default is: `{}`
 #
-# @param channel_authentication_list
+# @param [Hash] channel_authentication_list
 #    a Hash of MQ channel authentication records.
 #    Use use a `yaml` representation of [mq_channel_authentication](/docs/mq_config/mq_channel_authentication.html) to specify all properties and params of the MQ channel authentication records you need. 
 #    The default is: `{}`

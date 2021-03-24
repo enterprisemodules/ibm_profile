@@ -22,6 +22,10 @@ The `ibm_profile` module allows an easy path from first simple installation to a
 - [iib_config](https://www.enterprisemodules.com/shop/products/puppet-iib_config-module) For configuring IBM Integration Bus on Linux systems
 - [iib_install](https://www.enterprisemodules.com/shop/products/puppet-iib_install-module) For installing IBM Integration Bus on Linux systems
 
+## Try yourself
+
+You don't want to read about it, but really want to try it? You can! You can explore our Puppet modules for Oracle by checking out our [playgrounds](https://www.enterprisemodules.com//playgrounds#mq). Here we guide you around in some of the functionality of our IBM messaging modules.
+
 ## License
 
 Most of the [Enterprise Modules](https://www.enterprisemodules.com) modules are commercial modules. This one is **NOT**. It is an Open Source module. You are free to use it any way you like. It, however, is based on our commercial Puppet WebLogic modules.

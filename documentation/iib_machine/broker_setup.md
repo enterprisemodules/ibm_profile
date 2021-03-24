@@ -16,6 +16,11 @@ This class also allows you to register used credentials. Use the `credentials` p
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -36,6 +41,8 @@ a Hash of default properties added to all specfied Brokers. Use [iib_brokers](/d
 
 The default value is: `{}`
 
+Type: `Hash`
+
 
 [Back to overview of iib_machine::broker_setup](#attributes)
 
@@ -44,6 +51,8 @@ The default value is: `{}`
 The list of brokers to configure. Use use a `yaml` representation of [iib_brokers](/docs/iib_config/iib_broker.html) to specify all properties and params of the brokers you need. 
 
 The default value is fetched from the hiera key `ibm_profile::iib_brokers` and is `{}` by default.
+Type: `Hash`
+
 
 [Back to overview of iib_machine::broker_setup](#attributes)
 
@@ -52,6 +61,8 @@ The default value is fetched from the hiera key `ibm_profile::iib_brokers` and i
 The list of IIB broker properties. Read about [iib_properties here](/docs/iib_config/iib_property.html). 
 
 The default value is: `{}`
+
+Type: `Hash`
 
 
 [Back to overview of iib_machine::broker_setup](#attributes)
@@ -62,6 +73,8 @@ The list of used credentials. Use the `credentials` property for this. Read abou
 
 The default value is: `{}`
 
+
+Type: `Hash`
 
 
 [Back to overview of iib_machine::broker_setup](#attributes)

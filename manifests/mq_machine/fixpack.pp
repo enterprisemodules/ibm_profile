@@ -1,4 +1,18 @@
 #++--++
+#
+# ibm_profile::mq_machine::fixpack
+#
+# @summary This class allows you to install a certain fixpack
+# on your system.
+#
+# @param []]] version
+#    The version of MQ to install.
+#
+# @param [String] source_location
+#    The url or directory where to find the IIB installation tar.
+#    gz file. You can use
+#    either a file, a http url or a puppet url.
+#
 #--++--
 class ibm_profile::mq_machine::fixpack(
   String  $source_location = $ibm_profile::source_location,

@@ -21,6 +21,11 @@ This class allows you to setup your MQ messaging security. It has support for:
 
 
 
+If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
+we provide you with a pre-installed environment, where you experiment with these Puppet types.
+
+Look at our playgrounds [here](/playgrounds#mq)
+
 ## Attributes
 
 
@@ -43,6 +48,8 @@ The defaults to use for all MQ authentication_info records.
 Use use a `yaml` representation of [mq_authentication_info](/docs/mq_config/mq_authentication_info.html) to specify all properties and params of the MQ authentication_info records you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::authorization_setup](#attributes)
 
@@ -53,6 +60,8 @@ A Hash of MQ authentication_info records.
 Use use a `yaml` representation of [mq_authentication_info](/docs/mq_config/mq_authentication_info.html) to specify all properties and params of the MQ authentication_info records you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::authorization_setup](#attributes)
 
@@ -63,6 +72,8 @@ The defaults to use for all MQ authorization records.
 Use use a `yaml` representation of [mq_authorization](/docs/mq_config/mq_authorization.html) to specify all properties and params of the MQ authorization records you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::authorization_setup](#attributes)
 
@@ -73,6 +84,8 @@ A Hash of MQ authorization records.
 Use use a `yaml` representation of [mq_authorization](/docs/mq_config/mq_authorization.html) to specify all properties and params of the MQ authorization records you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::authorization_setup](#attributes)
 
@@ -83,5 +96,7 @@ a Hash of MQ channel authentication records.
 Use use a `yaml` representation of [mq_channel_authentication](/docs/mq_config/mq_channel_authentication.html) to specify all properties and params of the MQ channel authentication records you need. 
 
 The default is: `{}`
+Type: `Hash`
+
 
 [Back to overview of mq_machine::authorization_setup](#attributes)
