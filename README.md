@@ -4,14 +4,15 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [License](#license)
-3. [Description - What the module does and why it is useful](#description)
-4. [Setup](#setup)
+2. [Experience the Power of Puppet for IBM MQ](experience-the-power-of-puppet-for-ibm-mq)
+3. [License](#license)
+4. [Description - What the module does and why it is useful](#description)
+5. [Setup](#setup)
   * [Requirements](#requirements)
   * [Installing the ibm_profile module](#installing-the-ibm_profile-module)
-5. [Usage - Configuration options and additional functionality](#usage)
-6. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-7. [Limitations - OS compatibility, etc.](#limitations)
+6. [Usage - Configuration options and additional functionality](#usage)
+7. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+8. [Limitations - OS compatibility, etc.](#limitations)
 
 ## Overview
 
@@ -22,9 +23,11 @@ The `ibm_profile` module allows an easy path from first simple installation to a
 - [iib_config](https://www.enterprisemodules.com/shop/products/puppet-iib_config-module) For configuring IBM Integration Bus on Linux systems
 - [iib_install](https://www.enterprisemodules.com/shop/products/puppet-iib_install-module) For installing IBM Integration Bus on Linux systems
 
-## Try yourself
+## Experience the Power of Puppet for IBM MQ
 
-You don't want to read about it, but really want to try it? You can! You can explore our Puppet modules for Oracle by checking out our [playgrounds](https://www.enterprisemodules.com//playgrounds#mq). Here we guide you around in some of the functionality of our IBM messaging modules.
+Installing IBM MQ software and managing your IBM MQ configuration can be hard. With Puppet at your side, you get super-powers when installing and managing IBM MQ. If you want to play and experiment with this [please take a look at our playgrounds](https://www.enterprisemodules.com/playgrounds#mq). 
+
+[![Experience the Power](https://raw.githubusercontent.com/enterprisemodules/public_images/master/superpowers-33-blanc.jpg)](https://www.enterprisemodules.com/playgrounds#mq)
 
 ## License
 

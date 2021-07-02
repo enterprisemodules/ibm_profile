@@ -12,10 +12,13 @@ This class allows you to setup your IIB software on your system. Specify the ver
 
 
 
-If you want to play and experiment with this type, please take a look at our playgrounds. At our playgrounds, 
-we provide you with a pre-installed environment, where you experiment with these Puppet types.
 
-Look at our playgrounds [here](/playgrounds#mq)
+## Experience the Power of Puppet for IBM MQ
+
+If you want to play and experiment with Puppet and IBM MQ, please take a look at our playgrounds. At our playgrounds, we provide you with a pre-installed environment, where you experiment fast and easy.
+
+{% include super_hero.html title="For IBM MQ" ref="/playgrounds#mq" %}
+
 
 ## Attributes
 
