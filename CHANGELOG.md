@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.4.0
+
+**Features**
+
+
+- [iib/mq_machine] Use generic classes for sysctl etc.
+- [docs] Add Super powers link to playgrounds
+
+
 ## Release 1.3.0
 
 **Features**
