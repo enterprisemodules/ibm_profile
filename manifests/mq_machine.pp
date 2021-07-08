@@ -380,12 +380,15 @@ class ibm_profile::mq_machine(
   Optional[String] $after_messaging_setup = undef,
   Optional[String] $after_mq_web = undef,
 ) inherits ibm_profile {
+
+  $is_linux = $::kernel == 'Linux'
+
   easy_type::ordered_steps([
-    'ibm_profile::mq_machine::sysctl',
-    'ibm_profile::mq_machine::limits',
-    'ibm_profile::mq_machine::groups_and_users',
-    'ibm_profile::mq_machine::packages',
-    'ibm_profile::mq_machine::firewall',
+    ['ibm_profile::mq_machine::sysctl',                   { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::sysctl' }],
+    ['ibm_profile::mq_machine::limits',                   { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::limits' }],
+    ['ibm_profile::mq_machine::groups_and_users',         { 'implementation' => 'easy_type::profile::groups_and_users' }],
+    ['ibm_profile::mq_machine::packages',                 { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::packages' }],
+    ['ibm_profile::mq_machine::firewall',                 { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::firewall' }],
     'ibm_profile::mq_machine::software',
     'ibm_profile::mq_machine::fixpack',
     'ibm_profile::mq_machine::manager_setup',

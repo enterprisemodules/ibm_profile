@@ -2,7 +2,10 @@ require_relative '../spec_helper_acceptance'
 
 describe 'ibm_profile::iib_machine' do
 
-  before do
+  before(:all) do
+    hiera_values_on_sut(
+      'easy_type::generate_password_mode' => 'development'
+    )
     manifest = <<-MANIFEST
       package {'sudo': ensure => present}
     MANIFEST
