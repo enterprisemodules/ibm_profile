@@ -1,2 +1,3 @@
 ---
-mq_install::software::file_name: 'aa.tar.gz'
+mq_install::software::file_name:      'aa.tar.gz'
+easy_type::generate_password_mode:    silent

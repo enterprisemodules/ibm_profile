@@ -55,6 +55,8 @@ ibm_profile::mq_machine::groups_and_users::groups:
 # Users to create
 #
 #------------------------------------------------------------------------------
+ibm_profile::mq_machine::groups_and_users::required_values:
+  - ibm_profile::mq_machine::os_user_password
 ibm_profile::mq_machine::groups_and_users::users:
   "%{::ibm_profile::mq_os_user}":
     uid:        "%{lookup('ibm_profile::mq_uid')}"
@@ -69,16 +71,22 @@ ibm_profile::mq_machine::groups_and_users::users:
 # Firewall rules
 #
 #------------------------------------------------------------------------------
-ibm_profile::mq_machine::firewall::ports:
-  - 1414
 ibm_profile::mq_machine::firewall::manage_service: true
+ibm_profile::mq_machine::firewall::firewalld::ports:
+  "500 accept tcp port 1414 for MQ":
+    port: 1414
+#------------------------------------------------------------------------------
+ibm_profile::mq_machine::firewall::iptables::ports:
+  "500 accept tcp port 1414 for MQ":
+    dport: 1414
 #------------------------------------------------------------------------------
 #
 # Extra required packages
 #
 #------------------------------------------------------------------------------
 ibm_profile::mq_machine::packages::list:
-  - unzip
+  unzip:
+    ensure: present
 #------------------------------------------------------------------------------
 #
 # MQ software
@@ -184,6 +192,8 @@ ibm_profile::iib_machine::groups_and_users::groups:
 # Users to create
 #
 #------------------------------------------------------------------------------
+ibm_profile::iib_machine::groups_and_users::required_values:
+  - ibm_profile::mq_machine::os_user_password
 ibm_profile::iib_machine::groups_and_users::users:
   "%{::ibm_profile::iib_os_user}":
     gid:        "%{::ibm_profile::iib_os_group}"
@@ -199,7 +209,8 @@ ibm_profile::iib_machine::groups_and_users::users:
 #
 #------------------------------------------------------------------------------
 ibm_profile::iib_machine::packages::list:
-  - unzip
+  unzip:
+    ensure: present
 #------------------------------------------------------------------------------
 #
 # IIB Firewall rules
@@ -209,13 +220,35 @@ ibm_profile::iib_machine::packages::list:
 # The default range for the HTTPConnector is 7800 - 7842;
 # the default range for the HTTPSConnector is 7843 - 7884. The first integration server to start an embedded
 #  listener is allocated port 7800, the second is allocated 7801, and so on."
-ibm_profile::iib_machine::firewall::ports:
-  - 7800
-  - 7801
-  - 7802
-  - 7843
-  - 7884
-ibm_profile::iib_machine::firewall::manage_service: true
+ibm_profile::iib_machine::firewall::manage_service:       true
+ibm_profile::iib_machine::firewall::firewalld::ports:
+  "500 accept tcp port 7800 for IIB":
+    port: 7800
+  "500 accept tcp port 7801 for IIB":
+    port: 7801
+  "500 accept tcp port 7802 for IIB":
+    port: 7802
+  "500 accept tcp port 7803 for IIB":
+    port: 7803
+  "500 accept tcp port 7843 for IIB":
+    port: 7843
+  "500 accept tcp port 7844 for IIB":
+    port: 7844
+#------------------------------------------------------------------------------
+ibm_profile::iib_machine::firewall::manage_service:       true
+ibm_profile::iib_machine::firewall::iptables::ports:
+  "500 accept tcp port 7800 for IIB":
+    dport: 7800
+  "500 accept tcp port 7801 for IIB":
+    dport: 7801
+  "500 accept tcp port 7802 for IIB":
+    dport: 7802
+  "500 accept tcp port 7803 for IIB":
+    dport: 7803
+  "500 accept tcp port 7843 for IIB":
+    dport: 7843
+  "500 accept tcp port 7844 for IIB":
+    dport: 7844
 #------------------------------------------------------------------------------
 #
 # IIB software
