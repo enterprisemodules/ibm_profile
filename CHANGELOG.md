@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.5.0
+
+**Maintenance**
+
+- [fixpack] Update for latest version of mq_install
+
 ## Release 1.4.0
 
 **Features**
