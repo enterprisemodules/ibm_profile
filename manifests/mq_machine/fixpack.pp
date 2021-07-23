@@ -24,8 +24,10 @@ class ibm_profile::mq_machine::fixpack(
       withpath => false,
     }
 
-    mq_install::fixpack{ $version:
-      source_location => '/vagrant/modules/software/files',
+    class { 'mq_install::fixpack':
+      version         => $version,
+      source_location => $source_location,
     }
+    contain mq_install::fixpack
   }
 }
