@@ -1,107 +1,55 @@
 ---
-require: rubocop-rspec
+require: rubocop-performance
 AllCops:
-  DisplayCopNames: true
-  TargetRubyVersion: '2.1'
+  NewCops: enable
+
   Include:
-  - "./**/*.rb"
+  - "**/*.rb"
   Exclude:
-  - bin/*
-  - ".vendor/**/*"
-  - Gemfile
-  - Rakefile
+  - "**/preamble.rb"
+  - "**/.identity.rb"
+  - "**/jwt.rb"
+  - spec/**/*.rb
+  - "**/*.rake"
+  - "**/*.task"
+  - "**/Gemfile"
+  - "**/Rakefile"
+  - "**/Guardfile"
+  - "**/Vagrantfile"
+  - lib/1.8.7/csv.rb
   - pkg/**/*
-  - spec/fixtures/**/*
-  - vendor/**/*
-Metrics/LineLength:
-  Description: People have wide screens, use them.
-  Max: 200
-RSpec/BeforeAfterAll:
-  Description: Beware of using after(:all) as it may cause state to leak between tests.
-    A necessary evil in acceptance testing.
-  Exclude:
-  - spec/acceptance/**/*.rb
-RSpec/HookArgument:
-  Description: Prefer explicit :each argument, matching existing module's style
-  EnforcedStyle: each
-Style/BlockDelimiters:
-  Description: Prefer braces for chaining. Mostly an aesthetical choice. Better to
-    be consistent then.
-  EnforcedStyle: braces_for_chaining
-Style/ClassAndModuleChildren:
-  Description: Compact style reduces the required amount of indentation.
-  EnforcedStyle: compact
-Style/EmptyElse:
-  Description: Enforce against empty else clauses, but allow `nil` for clarity.
-  EnforcedStyle: empty
-Style/FormatString:
-  Description: Following the main puppet project's style, prefer the % format format.
-  EnforcedStyle: percent
-Style/FormatStringToken:
-  Description: Following the main puppet project's style, prefer the simpler template
-    tokens over annotated ones.
-  EnforcedStyle: template
-Style/Lambda:
-  Description: Prefer the keyword for easier discoverability.
-  EnforcedStyle: literal
-Style/RegexpLiteral:
-  Description: Community preference. See https://github.com/voxpupuli/modulesync_config/issues/168
-  EnforcedStyle: percent_r
-Style/TernaryParentheses:
-  Description: Checks for use of parentheses around ternary conditions. Enforce parentheses
-    on complex expressions for better readability, but seriously consider breaking
-    it up.
-  EnforcedStyle: require_parentheses_when_complex
-Style/TrailingCommaInArguments:
-  Description: Prefer always trailing comma on multiline argument lists. This makes
-    diffs, and re-ordering nicer.
-  EnforcedStyleForMultiline: comma
-Style/TrailingCommaInLiteral:
-  Description: Prefer always trailing comma on multiline literals. This makes diffs,
-    and re-ordering nicer.
-  EnforcedStyleForMultiline: comma
-Style/SymbolArray:
-  Description: Using percent style obscures symbolic intent of array's contents.
-  EnforcedStyle: brackets
-RSpec/MessageSpies:
-  EnforcedStyle: receive
-Style/CollectionMethods:
-  Enabled: true
-Style/MethodCalledOnDoEndBlock:
-  Enabled: true
-Style/StringMethods:
-  Enabled: true
-Layout/EndOfLine:
+  - bin/*
+Layout/HeredocIndentation:
   Enabled: false
-Metrics/AbcSize:
+Security/Eval:
+  Enabled: false
+Layout/LineLength:
+  Max: 200
+Naming/AccessorMethodName:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 20
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Style/NumericPredicate:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+Style/SignalException:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Naming/ClassAndModuleCamelCase:
   Enabled: false
 Metrics/BlockLength:
   Enabled: false
-Metrics/ClassLength:
+Performance/RegexpMatch:
   Enabled: false
-Metrics/CyclomaticComplexity:
-  Enabled: false
-Metrics/MethodLength:
-  Enabled: false
-Metrics/ModuleLength:
-  Enabled: false
-Metrics/ParameterLists:
-  Enabled: false
-Metrics/PerceivedComplexity:
-  Enabled: false
-RSpec/DescribeClass:
-  Enabled: false
-RSpec/ExampleLength:
-  Enabled: false
-RSpec/MessageExpectation:
-  Enabled: false
-RSpec/MultipleExpectations:
-  Enabled: false
-RSpec/NestedGroups:
-  Enabled: false
-Style/AsciiComments:
-  Enabled: false
-Style/IfUnlessModifier:
-  Enabled: false
-Style/SymbolProc:
+Style/FrozenStringLiteralComment:
   Enabled: false

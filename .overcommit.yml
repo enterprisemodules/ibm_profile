@@ -11,25 +11,28 @@ CommitMsg:
 PreCommit:
   ALL:
     on_warn: fail
+  PuppetMetadataJsonLint:
+    enabled: true
+  RakeTarget:
+    enabled: true
+    description: Puppet lint with excludes
+    targets:
+    - lint
   AuthorEmail:
     enabled: true
   AuthorName:
     enabled: true
   MergeConflicts:
     enabled: true
+  CaseConflicts:
+    enabled: false
   PuppetLint:
-    flags:
-    - "--relative"
     enabled: false
   YamlSyntax:
     enabled: true
-  BundleCheck:
-    enabled: true
   RuboCop:
-    enabled: false
-  Fasterer:
     enabled: true
-  BundleAudit:
+  Fasterer:
     enabled: true
   Brakeman:
     enabled: true
