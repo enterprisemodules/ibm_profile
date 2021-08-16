@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::mq_machine::software
 #
@@ -13,7 +12,9 @@
 #    gz file. You can use
 #    either a file, a http url or a puppet url.
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::mq_machine::software(
   Pattern[/\d+\.\d+\.\d+\.\d/] $version,
   Boolean                      $install_ams,         # Install AMS packages

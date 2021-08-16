@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::mq_machine::mq_web
 #
@@ -10,7 +9,9 @@
 #    Use use a `yaml` representation of [mq_web](/docs/mq_config/mq_web.html) to specify all properties and params of the MQ webs you need. 
 #    The default is: `{}`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::mq_machine::mq_web(
   Hash $list,
 ) inherits ibm_profile {

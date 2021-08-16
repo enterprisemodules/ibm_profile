@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::iib_machine
 #
@@ -313,7 +312,9 @@
 #    ibm_profile::iib_machine::after_autostart:  my_module::my_class
 #    ```
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::iib_machine(
   Optional[String] $before_sysctl = undef,
   Optional[String] $before_limits = undef,

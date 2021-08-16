@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::iib_machine::deployments
 #
@@ -15,7 +14,9 @@
 #    Use [iib_deployment](/docs/iib_config/iib_deployment.html) to specify the defaults.
 #    The default value is: `{}`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::iib_machine::deployments(
   Hash $defaults,
   Hash $list,

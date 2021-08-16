@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::iib_machine::software
 #
@@ -19,7 +18,9 @@
 #    The OS user to use for the installation of the IIB software.
 #    The default is: `iibadmin`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::iib_machine::software(
   Pattern[/\d+\.\d+\.\d+\.\d/] $version,
   String                       $source_location,

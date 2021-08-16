@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::mq_machine::manager_setup
 #
@@ -15,7 +14,9 @@
 #    Use use a `yaml` representation of [mq_manager](/docs/mq_config/mq_manager.html) to specify all properties and params of the MQ managers you need. 
 #    The default is: `{}`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::mq_machine::manager_setup(
   Hash $defaults,
   Hash $list = $ibm_profile::mq_managers,
