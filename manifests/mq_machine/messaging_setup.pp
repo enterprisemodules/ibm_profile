@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::mq_machine::messaging_setup
 #
@@ -54,7 +53,9 @@
 #    Use use a `yaml` representation of [mq_channel](/docs/mq_config/mq_channel.html) to specify all properties and params of the MQ channels you need. 
 #    The default is: `{}`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::mq_machine::messaging_setup(
   Hash $queue_list,
   Hash $queue_defaults,

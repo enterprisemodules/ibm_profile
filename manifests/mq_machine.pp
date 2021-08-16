@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::mq_machine
 #
@@ -341,7 +340,9 @@
 #    ibm_profile::mq_machine::after_mq_web:  my_module::my_class
 #    ```
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::mq_machine(
   Optional[String] $before_sysctl = undef,
   Optional[String] $before_limits = undef,

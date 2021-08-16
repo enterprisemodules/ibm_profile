@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::iib_machine::server_setup
 #
@@ -22,7 +21,9 @@
 #    Read about [iib_properties here](/docs/iib_config/iib_property.html). 
 #    The default value is: `{}`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::iib_machine::server_setup(
   Hash $defaults,
   Hash $list,

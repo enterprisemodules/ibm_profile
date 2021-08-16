@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::iib_machine::autostart
 #
@@ -21,7 +20,9 @@
 #    The OS group used for autostarting the brokers.
 #    The default is `mqbrkrs`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::iib_machine::autostart(
   Hash   $list,
   String $version,

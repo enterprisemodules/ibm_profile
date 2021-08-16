@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::mq_machine::fixpack
 #
@@ -13,7 +12,9 @@
 #    gz file. You can use
 #    either a file, a http url or a puppet url.
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::mq_machine::fixpack(
   String  $source_location = $ibm_profile::source_location,
   Optional[Pattern[/\d+\.\d+\.\d+\.\d/]]

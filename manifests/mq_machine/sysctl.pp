@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::mq_machine::sysctl
 #
@@ -10,7 +9,9 @@
 # @param [Hash] list
 #    
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::mq_machine::sysctl(
   Hash $list
 ) inherits ibm_profile {

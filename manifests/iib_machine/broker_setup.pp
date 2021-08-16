@@ -1,4 +1,3 @@
-#++--++
 #
 # ibm_profile::iib_machine::broker_setup
 #
@@ -29,7 +28,9 @@
 #    Use the `credentials` property for this. Read about [iib_credential here](/docs/iib_config/iib_credential.html). 
 #    The default value is: `{}`
 #
-#--++--
+#
+# See the file "LICENSE" for the full license governing this code.
+#
 class ibm_profile::iib_machine::broker_setup(
   Hash $defaults,
   Hash $list,
