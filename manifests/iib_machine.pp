@@ -316,6 +316,7 @@
 # See the file "LICENSE" for the full license governing this code.
 #
 class ibm_profile::iib_machine(
+  Optional[String] $before_em_license = undef,
   Optional[String] $before_sysctl = undef,
   Optional[String] $before_limits = undef,
   Optional[String] $before_groups_and_users = undef,
@@ -326,6 +327,7 @@ class ibm_profile::iib_machine(
   Optional[String] $before_server_setup = undef,
   Optional[String] $before_deployments = undef,
   Optional[String] $before_autostart = undef,
+  Optional[String] $em_license = undef,
   Optional[String] $sysctl = undef,
   Optional[String] $limits = undef,
   Optional[String] $groups_and_users = undef,
@@ -336,6 +338,7 @@ class ibm_profile::iib_machine(
   Optional[String] $broker_setup = undef,
   Optional[String] $deployments = undef,
   Optional[String] $autostart = undef,
+  Optional[String] $after_em_license = undef,
   Optional[String] $after_sysctl = undef,
   Optional[String] $after_limits = undef,
   Optional[String] $after_groups_and_users = undef,
@@ -351,6 +354,7 @@ class ibm_profile::iib_machine(
   $is_linux = $::kernel == 'Linux'
 
   easy_type::ordered_steps([
+    'ibm_profile::em_license',
     ['ibm_profile::iib_machine::sysctl',                   { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::sysctl' }],
     ['ibm_profile::iib_machine::limits',                   { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::limits' }],
     ['ibm_profile::iib_machine::groups_and_users',         { 'implementation' => 'easy_type::profile::groups_and_users' }],
