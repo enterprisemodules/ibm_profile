@@ -344,6 +344,7 @@
 # See the file "LICENSE" for the full license governing this code.
 #
 class ibm_profile::mq_machine(
+  Optional[String] $before_em_license = undef,
   Optional[String] $before_sysctl = undef,
   Optional[String] $before_limits = undef,
   Optional[String] $before_groups_and_users = undef,
@@ -356,6 +357,7 @@ class ibm_profile::mq_machine(
   Optional[String] $before_authorization_setup = undef,
   Optional[String] $before_messaging_setup = undef,
   Optional[String] $before_mq_web = undef,
+  Optional[String] $em_license = undef,
   Optional[String] $sysctl = undef,
   Optional[String] $limits = undef,
   Optional[String] $groups_and_users = undef,
@@ -368,6 +370,7 @@ class ibm_profile::mq_machine(
   Optional[String] $authorization_setup = undef,
   Optional[String] $messaging_setup = undef,
   Optional[String] $mq_web = undef,
+  Optional[String] $after_em_license = undef,
   Optional[String] $after_sysctl = undef,
   Optional[String] $after_limits = undef,
   Optional[String] $after_groups_and_users = undef,
@@ -385,6 +388,7 @@ class ibm_profile::mq_machine(
   $is_linux = $::kernel == 'Linux'
 
   easy_type::ordered_steps([
+    'ibm_profile::em_license',
     ['ibm_profile::mq_machine::sysctl',                   { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::sysctl' }],
     ['ibm_profile::mq_machine::limits',                   { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::limits' }],
     ['ibm_profile::mq_machine::groups_and_users',         { 'implementation' => 'easy_type::profile::groups_and_users' }],
