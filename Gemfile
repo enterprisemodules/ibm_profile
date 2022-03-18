@@ -22,7 +22,7 @@ end
 group :acceptance_test do
   if Gem::Version.new(puppetversion) >= Gem::Version.new('6.11.0')
     gem 'bolt'
-    gem 'puppet_litmus', git: 'https://github.com/enterprisemodules/puppet_litmus.git', ref: 'remove_append_cli'
+    gem 'puppet_litmus'
   end
   gem 'serverspec'
   gem 'rspec-retry'
@@ -41,7 +41,7 @@ group :release, :acceptance_test do
     gem 'rake'
   end
   gem 'puppet-blacksmith'
-  gem 'em_tasks', :git => "https://github.com/enterprisemodules/em_tasks.git", :ref => 'hajee/ch162/start-using-latest-versions-of-litmus-again' if RUBY_VERSION > '2.1.2'
+  gem 'em_tasks', :git => "https://github.com/enterprisemodules/em_tasks.git" if RUBY_VERSION > '2.1.2'
 end
 group :unit_test, :acceptance_test, :publish do
   gem 'easy_type_helpers', git: 'https://github.com/enterprisemodules/easy_type_helpers.git'
