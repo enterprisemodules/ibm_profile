@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.6.0
+
+**Features**
+
+- [release] Add support for AlmaLinux and Rocky
+- [em_license] Initial version. Load EM license at start
+
 ## Release 1.5.0
 
 **Maintenance**
@@ -11,7 +18,6 @@ All notable changes to this project will be documented in this file.
 ## Release 1.4.0
 
 **Features**
-
 
 - [iib/mq_machine] Use generic classes for sysctl etc.
 - [docs] Add Super powers link to playgrounds
