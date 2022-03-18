@@ -4,7 +4,7 @@
 # @summary This class allows you to setup your IIB software on your system.
 #
 #
-# @param [Pattern[/\d+\.\d+\.\d+\.\d/]] version
+# @param []] version
 #    The version of IIB to install.
 #
 # @param [String] source_location
@@ -21,16 +21,16 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::iib_machine::software(
-  Pattern[/\d+\.\d+\.\d+\.\d/] $version,
-  String                       $source_location,
+class ibm_profile::iib_machine::software (
   String                       $iib_os_user,
+  String                       $source_location,
+  Pattern[/\d+\.\d+\.\d+\.\d/] $version
 ) inherits ibm_profile {
-  echo {"IIB version ${version} software from ${source_location}":
+  echo { "IIB version ${version} software from ${source_location}":
     withpath => false,
   }
 
-  iib_install::software {$version:
+  iib_install::software { $version:
     source_location => $source_location,
   }
 
@@ -39,5 +39,4 @@ class ibm_profile::iib_machine::software(
     os_user        => $iib_os_user,
     home_directory => "/opt/IBM/iib-${version}",
   }
-
 }

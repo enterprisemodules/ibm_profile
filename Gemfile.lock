@@ -60,7 +60,6 @@ GEM
     bundler-audit (0.9.0.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
-    byebug (11.1.3)
     childprocess (4.0.0)
     colored2 (3.1.2)
     colorize (0.8.1)
@@ -220,10 +219,92 @@ GEM
       puppet-resource_api (~> 1.5)
       scanf (~> 1.0)
       semantic_puppet (~> 1.0)
+    puppet (7.1.0-universal-darwin)
+      CFPropertyList (~> 2.2)
+      concurrent-ruby (~> 1.0)
+      deep_merge (~> 1.0)
+      facter (> 2.0.1, < 5)
+      fast_gettext (~> 1.1)
+      hiera (>= 3.2.1, < 4)
+      locale (~> 2.1)
+      multi_json (~> 1.10)
+      puppet-resource_api (~> 1.5)
+      scanf (~> 1.0)
+      semantic_puppet (~> 1.0)
     puppet-blacksmith (6.1.1)
       puppet-modulebuilder (~> 0.2)
       rest-client (~> 2.0)
     puppet-lint (2.5.2)
+    puppet-lint-absolute_classname-check (3.0.1)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-absolute_template_path (1.0.1)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-anchor-check (1.0.1)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-appends-check (1.0.0)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-class_parameter-check (0.3.0)
+      puppet-lint (~> 2.0)
+    puppet-lint-classes_and_types_beginning_with_digits-check (1.0.0)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-empty_lines_around_body-check (0.1.1)
+      puppet-lint (~> 2.0)
+    puppet-lint-empty_trailing_lines (0.0.1)
+      puppet-lint (>= 2.0, < 3.0)
+    puppet-lint-explicit_hiera_class_param_lookup-check (0.1.2)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-file_ensure-check (1.0.0)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-leading_zero-check (1.0.0)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-legacy_facts-check (1.0.4)
+      puppet-lint (~> 2.4)
+    puppet-lint-lookup_in_parameter-check (1.0.0)
+      puppet-lint (~> 2.0)
+    puppet-lint-manifest_whitespace-check (0.1.17)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-no_erb_template-check (1.0.0)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-no_file_path_attribute-check (0.1.1)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-no_symbolic_file_modes-check (1.0.2)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-numericvariable (1.0.3)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-optional_default-check (1.0.0)
+      puppet-lint (>= 2.1, < 3.0)
+    puppet-lint-package_ensure-check (0.2.0)
+      puppet-lint (>= 1.0)
+    puppet-lint-param-docs (1.7.5)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-param-types (0.0.1)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-params_empty_string-check (1.0.0)
+      puppet-lint (~> 2.5)
+    puppet-lint-recurse_file-check (0.2.0)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-resource_reference_syntax (1.1.0)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-strict_indent-check (2.0.8)
+      puppet-lint (> 1.0)
+    puppet-lint-template_file_extension-check (0.1.3)
+      puppet-lint (>= 1.1, < 3.0)
+    puppet-lint-top_scope_facts-check (1.0.1)
+      puppet-lint (~> 2.0)
+    puppet-lint-topscope-variable-check (1.0.1)
+      puppet-lint (~> 2.0)
+    puppet-lint-trailing_comma-check (0.4.2)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-uncuddled_else-check (0.1.1)
+      puppet-lint (~> 2.0)
+    puppet-lint-unquoted_string-check (2.1.0)
+      puppet-lint (>= 2.1, < 3.0)
+    puppet-lint-variable_contains_upcase (1.2.0)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-version_comparison-check (1.0.0)
+      puppet-lint (>= 1.0, < 3.0)
+    puppet-lint-world_writable_files-check (0.0.2)
+      puppet-lint (>= 1.1, < 3.0)
     puppet-modulebuilder (0.3.0)
       minitar (~> 0.9)
       pathspec (>= 0.2.1, < 2.0.0)
@@ -375,6 +456,28 @@ GEM
       unf_ext
     unf_ext (0.0.8.1)
     unicode-display_width (1.8.0)
+    voxpupuli-puppet-lint-plugins (3.0.0)
+      puppet-lint (>= 2.5.0)
+      puppet-lint-absolute_classname-check (>= 2.0.0)
+      puppet-lint-anchor-check
+      puppet-lint-classes_and_types_beginning_with_digits-check
+      puppet-lint-file_ensure-check
+      puppet-lint-leading_zero-check
+      puppet-lint-legacy_facts-check
+      puppet-lint-lookup_in_parameter-check
+      puppet-lint-manifest_whitespace-check
+      puppet-lint-optional_default-check
+      puppet-lint-param-docs
+      puppet-lint-param-types
+      puppet-lint-params_empty_string-check
+      puppet-lint-resource_reference_syntax
+      puppet-lint-strict_indent-check
+      puppet-lint-top_scope_facts-check
+      puppet-lint-topscope-variable-check
+      puppet-lint-trailing_comma-check
+      puppet-lint-unquoted_string-check
+      puppet-lint-variable_contains_upcase
+      puppet-lint-version_comparison-check
     webrick (1.7.0)
     windows_error (0.1.3)
     winrm (2.3.6)
@@ -397,12 +500,12 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-18
 
 DEPENDENCIES
   bolt
   brakeman
   bundle-audit
-  byebug
   easy_type_helpers!
   em_tasks!
   fasterer
@@ -415,6 +518,22 @@ DEPENDENCIES
   puppet (= 7.1.0)
   puppet-blacksmith
   puppet-lint
+  puppet-lint-absolute_template_path
+  puppet-lint-appends-check
+  puppet-lint-class_parameter-check
+  puppet-lint-empty_lines_around_body-check
+  puppet-lint-empty_trailing_lines
+  puppet-lint-explicit_hiera_class_param_lookup-check
+  puppet-lint-no_erb_template-check
+  puppet-lint-no_file_path_attribute-check
+  puppet-lint-no_symbolic_file_modes-check
+  puppet-lint-numericvariable
+  puppet-lint-package_ensure-check
+  puppet-lint-param-types
+  puppet-lint-recurse_file-check
+  puppet-lint-template_file_extension-check
+  puppet-lint-uncuddled_else-check
+  puppet-lint-world_writable_files-check
   puppet_litmus
   puppetlabs_spec_helper (< 3.0.0)
   rake
@@ -426,6 +545,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   serverspec
+  voxpupuli-puppet-lint-plugins
 
 BUNDLED WITH
    1.17.3

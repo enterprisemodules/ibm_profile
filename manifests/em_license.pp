@@ -7,7 +7,6 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::em_license
-{
+class ibm_profile::em_license {
   contain easy_type::license::activate
 }
