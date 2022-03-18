@@ -17,13 +17,13 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::iib_machine::deployments(
+class ibm_profile::iib_machine::deployments (
   Hash $defaults,
   Hash $list,
 ) inherits ibm_profile {
-  echo {"Ensure IIB deployments(s) ${list.keys.join(', ')}":
+  echo { "Ensure IIB deployments(s) ${list.keys.join(', ')}":
     withpath => false,
   }
-  $final_defaults = merge($defaults, { 'ensure' => 'present'})
+  $final_defaults = merge($defaults, { 'ensure' => 'present' })
   ensure_resources('iib_deployment', $list, $final_defaults)
 }

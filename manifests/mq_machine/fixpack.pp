@@ -15,13 +15,13 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::mq_machine::fixpack(
+class ibm_profile::mq_machine::fixpack (
   String  $source_location = $ibm_profile::source_location,
   Optional[Pattern[/\d+\.\d+\.\d+\.\d/]]
-          $version = undef,
+  $version = undef,
 ) inherits ibm_profile {
   if $version != undef {
-    echo {"MQ fixpack ${version} software from ${source_location}":
+    echo { "MQ fixpack ${version} software from ${source_location}":
       withpath => false,
     }
 

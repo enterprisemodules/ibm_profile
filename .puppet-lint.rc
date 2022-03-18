@@ -1,5 +1,6 @@
-  --fail-on-warnings
-  --no-140chars-check
-  --no-quoted_booleans
-  --no-variable_is_lowercase
-  --relative
+--fail-on-warnings
+--relative
+--no-140chars
+--no-lookup_in_parameter
+--no-params_empty_string_assignment
+--no-parameter_documentation

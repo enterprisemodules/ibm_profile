@@ -7,7 +7,7 @@
 # @param [Pattern[/\d+\.\d+\.\d+\.\d/]] version
 #    The version of MQ to install.
 #
-# @param [String] source_location
+# @param [InstallDevelopmentToolkitpackagesString] source_location
 #    The url or directory where to find the IIB installation tar.
 #    gz file. You can use
 #    either a file, a http url or a puppet url.
@@ -15,29 +15,44 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::mq_machine::software(
+class ibm_profile::mq_machine::software (
+  # Install GSKit packages
+  Boolean                      $install_amqp,
+  Boolean                      $install_ams,
+  # IBM MQ Bridge to Salesforce
+  Boolean                      $install_blockchain,
+  # Install FT packages
+  Boolean                      $install_client,
+  # Install Client packages
+  Boolean                      $install_explorer,
+  # Install AMS packages
+  Boolean                      $install_ft,
+  # Install man packages
+  Boolean                      $install_gskit,
+  # Install SDK packages
+  Boolean                      $install_man,
+  # IBM MQ Bridge to blockchain
+  Boolean                      $install_rdqm,
+  # REST API and Console
+  Boolean                      $install_salesforce,
+  # Install XRServer packages
+  Boolean                      $install_samples,
+  # Install Samples packages
+  Boolean                      $install_sdk,
+  # replicated data queue manage
+  Boolean                      $install_toolkit,
+  # Install AMQP packages
+  Boolean                      $install_web,
+  # Install Explorer packages
+  Boolean                      $install_xrserver,
   Pattern[/\d+\.\d+\.\d+\.\d/] $version,
-  Boolean                      $install_ams,         # Install AMS packages
-  Boolean                      $install_ft,          # Install FT packages
-  Boolean                      $install_client,      # Install Client packages
-  Boolean                      $install_explorer,    # Install Explorer packages
-  Boolean                      $install_xrserver,    # Install XRServer packages
-  Boolean                      $install_samples,     # Install Samples packages
-  Boolean                      $install_sdk,         # Install SDK packages
-  Boolean                      $install_man,         # Install man packages
-  Boolean                      $install_gskit,       # Install GSKit packages
-  Boolean                      $install_amqp,        # Install AMQP packages
-  Boolean                      $install_web,         # REST API and Console
-  Boolean                      $install_salesforce,  # IBM MQ Bridge to Salesforce
-  Boolean                      $install_blockchain,  # IBM MQ Bridge to blockchain
-  Boolean                      $install_rdqm,        # replicated data queue manage
-  Boolean                      $install_toolkit,     # Install Development Toolkit packages
-  String                       $source_location      = $ibm_profile::source_location,
+  # Install Development Toolkit packages
+  String                       $source_location      = $ibm_profile::source_location
 ) inherits ibm_profile {
-  echo {"MQ version ${version} software from ${source_location}":
+  echo { "MQ version ${version} software from ${source_location}":
     withpath => false,
   }
-  class {'::mq_install::software':
+  class { 'mq_install::software':
     source_location    => $source_location,
     version            => $version,
     install_ams        => $install_ams,
@@ -56,5 +71,5 @@ class ibm_profile::mq_machine::software(
     install_rdqm       => $install_rdqm,
     install_toolkit    => $install_toolkit,
   }
-  contain ::mq_install::software
+  contain mq_install::software
 }

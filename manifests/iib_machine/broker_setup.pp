@@ -31,16 +31,16 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::iib_machine::broker_setup(
+class ibm_profile::iib_machine::broker_setup (
+  Hash $credentials,
   Hash $defaults,
   Hash $list,
-  Hash $properties,
-  Hash $credentials,
+  Hash $properties
 ) inherits ibm_profile {
-  echo {"Ensure IIB Brokers(s) ${list.keys.join(', ')}":
+  echo { "Ensure IIB Brokers(s) ${list.keys.join(', ')}":
     withpath => false,
   }
-  $final_defaults = merge($defaults, { 'ensure' => 'present'})
+  $final_defaults = merge($defaults, { 'ensure' => 'present' })
   ensure_resources('iib_broker', $list, $final_defaults)
 
   ensure_resources('iib_property', $properties)

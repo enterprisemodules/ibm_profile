@@ -12,10 +12,10 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::mq_machine::sysctl(
+class ibm_profile::mq_machine::sysctl (
   Hash $list
 ) inherits ibm_profile {
-  echo {'MQ Sysctl':
+  echo { 'MQ Sysctl':
     withpath => false,
   }
 

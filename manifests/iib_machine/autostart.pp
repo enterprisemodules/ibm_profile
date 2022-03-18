@@ -23,17 +23,17 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-class ibm_profile::iib_machine::autostart(
-  Hash   $list,
-  String $version,
-  String $iib_os_user,
+class ibm_profile::iib_machine::autostart (
   String $iib_os_group,
+  String $iib_os_user,
+  Hash   $list,
+  String $version
 ) inherits ibm_profile {
-  echo {"Ensure Autostart for IIB Broker(s) ${list.keys.join(', ')}":
+  echo { "Ensure Autostart for IIB Broker(s) ${list.keys.join(', ')}":
     withpath => false,
   }
   $list.keys.each |$broker| {
-    iib_install::autostart {$broker:
+    iib_install::autostart { $broker:
       ensure      => 'present',
       iib_version => $version,
       iib_user    => $iib_os_user,
