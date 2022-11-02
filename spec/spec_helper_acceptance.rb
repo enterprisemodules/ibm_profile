@@ -77,7 +77,7 @@ else
         'puppetlabs-stdlib',
         'ipcrm-echo',
         'puppet-archive',
-        'herculesteam-augeasproviders_core',
+        'puppet-augeasproviders_core',
         'herculesteam-augeasproviders_sysctl',
         'saz-limits',
         'puppetlabs-firewall',

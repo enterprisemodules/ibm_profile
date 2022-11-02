@@ -18,7 +18,7 @@ fixtures:
     echo:                   ipcrm/echo
     archive:                puppet/archive
     augeas_core:            puppetlabs-augeas_core
-    augeasproviders_core:   herculesteam-augeasproviders_core
+    augeasproviders_core:   puppet-augeasproviders_core
     augeasproviders_sysctl: herculesteam-augeasproviders_sysctl
     limits:                 saz/limits
     firewall:               puppetlabs-firewall

@@ -8,7 +8,7 @@
   "dependencies": [
     {
       "name": "puppet-archive",
-      "version_requirement": ">= 2.0.0 < 5.0.0"
+      "version_requirement": ">= 2.0.0 < 7.0.0"
     },
     {
       "name": "enterprisemodules/easy_type",
@@ -35,8 +35,8 @@
       "version_requirement": ">= 0.1.5 < 1.0.0"
     },
     {
-      "name": "herculesteam-augeasproviders_core",
-      "version_requirement": ">= 2.1.4 < 3.0.0"
+      "name": "puppet-augeasproviders_core",
+      "version_requirement": ">= 3.0.0 < 4.0.0"
     },
     {
       "name": "herculesteam-augeasproviders_sysctl",
@@ -48,7 +48,7 @@
     },
     {
       "name": "puppetlabs-firewall",
-      "version_requirement": ">= 1.12.0 < 3.0.0"
+      "version_requirement": ">= 1.12.0 < 4.0.0"
     },
     {
       "name": "puppet-firewalld",
@@ -60,7 +60,7 @@
     },
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 4.25.0 < 7.0.0"
+      "version_requirement": ">= 4.25.0 < 9.0.0"
     }
   ],
   "operatingsystem_support": [
