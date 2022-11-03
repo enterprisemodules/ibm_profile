@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.7.0
+
+**Features**
+
+- [core] Add support for EL 9
+
 ## Release 1.6.0
 
 **Features**
