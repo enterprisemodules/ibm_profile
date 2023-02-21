@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'pathname'
+require 'puppet'
 
 def optional_require(file)
   begin

@@ -552,7 +552,7 @@ DEPENDENCIES
   puppet-lint-uncuddled_else-check
   puppet-lint-world_writable_files-check
   puppet_litmus
-  puppetlabs_spec_helper (< 3.0.0)
+  puppetlabs_spec_helper
   rake
   reek
   rspec-puppet
