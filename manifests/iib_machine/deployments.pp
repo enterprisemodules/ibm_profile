@@ -24,6 +24,6 @@ class ibm_profile::iib_machine::deployments (
   echo { "Ensure IIB deployments(s) ${list.keys.join(', ')}":
     withpath => false,
   }
-  $final_defaults = merge($defaults, { 'ensure' => 'present' })
+  $final_defaults = stdlib::merge($defaults, { 'ensure' => 'present' })
   ensure_resources('iib_deployment', $list, $final_defaults)
 }

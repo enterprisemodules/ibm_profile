@@ -24,6 +24,6 @@ class ibm_profile::mq_machine::manager_setup (
   echo { "Ensure MQ Manager(s) ${list.keys.join(', ')}":
     withpath => false,
   }
-  $final_defaults = merge($defaults, { 'ensure' => 'present' })
+  $final_defaults = stdlib::merge($defaults, { 'ensure' => 'present' })
   ensure_resources('mq_manager', $list, $final_defaults)
 }

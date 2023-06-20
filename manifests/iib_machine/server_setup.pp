@@ -32,7 +32,7 @@ class ibm_profile::iib_machine::server_setup (
   echo { "Ensure IIB servers(s) ${list.keys.join(', ')}":
     withpath => false,
   }
-  $final_defaults = merge($defaults, { 'ensure' => 'present' })
+  $final_defaults = stdlib::merge($defaults, { 'ensure' => 'present' })
   ensure_resources('iib_server', $list, $final_defaults)
 
   ensure_resources('iib_property', $properties)
