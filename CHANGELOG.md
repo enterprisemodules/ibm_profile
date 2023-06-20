@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## Release 1.8.0
+
+**Features**
+
+[core] Add support for Puppet 8 and ruby 3.2
+
 ## Release 1.7.0
 
 **Features**
