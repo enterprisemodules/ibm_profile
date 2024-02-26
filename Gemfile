@@ -17,6 +17,7 @@ group :unit_test do
   gem 'rspec-puppet-facts'
   gem 'gettext'
   gem 'rspec-expectations'
+  gem 'concurrent-ruby', '< 1.2.0'
 end
 
 group :acceptance_test do
