@@ -25,3 +25,4 @@ fixtures:
     firewalld:              puppet-firewalld
     sleep:                  fiddyspence-sleep
     dirtree:                AlexCline-dirtree
+    concat:                 puppetlabs-concat
