@@ -6,8 +6,9 @@ gem 'puppet', puppetversion, :require => false, :groups => [:test]
 gem 'rake'
 gem 'puppet-resource_api', :require => false, :git => 'https://github.com/enterprisemodules/puppet-resource_api.git', :ref => 'fix_issue_314'
 gem 'byebug'
-gem 'pdk', :git => 'https://github.com/puppetlabs/pdk.git', :ref => 'main'
+gem 'pdk'
 gem 'rexml'
+gem 'ffi', '< 1.17.0' if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('3.0.0')
 
 group :unit_test do
   gem 'puppet-catalog_rspec'
