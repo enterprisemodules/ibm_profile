@@ -387,6 +387,7 @@ class ibm_profile::mq_machine (
   $is_linux = $facts['kernel'] == 'Linux'
 
   easy_type::ordered_steps([
+      # lint:ignore:strict_indent
       'ibm_profile::em_license',
       ['ibm_profile::mq_machine::sysctl', { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::sysctl' }],
       ['ibm_profile::mq_machine::limits', { 'onlyif' => $is_linux, 'implementation' => 'easy_type::profile::limits' }],
@@ -400,5 +401,6 @@ class ibm_profile::mq_machine (
       'ibm_profile::mq_machine::authorization_setup',
       'ibm_profile::mq_machine::messaging_setup',
       'ibm_profile::mq_machine::mq_web',
+      # lint:endignore:strict_indent
   ])
 }
