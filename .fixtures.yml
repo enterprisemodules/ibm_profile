@@ -17,9 +17,11 @@ fixtures:
     stdlib:                 puppetlabs/stdlib
     echo:                   ipcrm/echo
     archive:                puppet/archive
-    augeas_core:            puppetlabs-augeas_core
+    augeas_core:
+      repo: puppetlabs-augeas_core
+      ref: 1.5.0
     augeasproviders_core:   puppet-augeasproviders_core
-    augeasproviders_sysctl: herculesteam-augeasproviders_sysctl
+    augeasproviders_sysctl: puppet-augeasproviders_sysctl
     limits:                 saz/limits
     firewall:               puppetlabs-firewall
     firewalld:              puppet-firewalld
